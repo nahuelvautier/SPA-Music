@@ -11,5 +11,7 @@ export function App () {
   $root.appendChild(Loader());
 
   Router();
-  hamburguerButton("panel", ("panel-btn"));
+  setTimeout(() => {
+    hamburguerButton("#panel", ("#panel-btn"));
+  }, 100);
 }
