@@ -1,0 +1,32 @@
+.panel {
+  position: fixed;
+  z-index: 998;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  overflow-y: auto;
+  background-color: rgba(0, 0, 0, .9);
+  transition: transform .5s ease;
+  transform: translate(0, -100%);
+}
+
+.panel.is-active {
+  transform: translate(0, 0);
+  opacity: 1;
+}
+
+.panel-btn {
+  position: absolute;
+  z-index: 999;
+  right: 1rem;
+  height: 3rem;
+  width: 3.5rem;
+  border-radius: 25%;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: salmon;
+}
