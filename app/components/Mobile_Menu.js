@@ -1,5 +1,3 @@
-import { Hamburger } from "./Hamburger.js";
-
 export function MobileMenu () {
   const $mobileMenu = document.createElement("nav"),
     $homeMobile = document.createElement("a"),
@@ -9,10 +7,10 @@ export function MobileMenu () {
     $homeMobile.href = "#/search.php";
     $homeMobile.textContent = "Home";
 
-    $artistMobile.href = "/artist.php";
+    $artistMobile.href = "#/artist.php";
     $artistMobile.textContent = "Artists";
 
-    $albumMobile.href = "/discography.php";
+    $albumMobile.href = "#/discography.php";
     $albumMobile.textContent = "Albums";
 
     $mobileMenu.classList.add("nav-container");

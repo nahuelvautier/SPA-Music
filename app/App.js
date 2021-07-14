@@ -6,12 +6,12 @@ import hamburguerButton from "./helpers/hamburger_btn.js";
 
 export function App () {
   const $root = document.getElementById("root");
+  $root.innerHTML = null;
+  
   $root.appendChild(Header());
   $root.appendChild(Main());
   $root.appendChild(Loader());
 
   Router();
-  setTimeout(() => {
-    hamburguerButton("#panel", ("#panel-btn"));
-  }, 100);
+  hamburguerButton("#panel", ("#panel-btn"));
 }
