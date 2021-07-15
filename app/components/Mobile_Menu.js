@@ -4,13 +4,13 @@ export function MobileMenu () {
     $artistMobile = document.createElement("a"),
     $albumMobile = document.createElement("a");
 
-    $homeMobile.href = "#/search.php";
+    $homeMobile.href = "#";
     $homeMobile.textContent = "Home";
 
-    $artistMobile.href = "#/artist.php";
+    $artistMobile.href = "#/search.php?s=";
     $artistMobile.textContent = "Artists";
 
-    $albumMobile.href = "#/discography.php";
+    $albumMobile.href = "#/discography.php?s=";
     $albumMobile.textContent = "Albums";
 
     $mobileMenu.classList.add("nav-container");

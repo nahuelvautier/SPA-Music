@@ -16,15 +16,21 @@ export function SearchForm () {
     $form.appendChild($input);
     $form.appendChild($inputBtn);
 
+  
+    if (location.hash.includes("#/search")) {
+      $input.value = localStorage.getItem("artistSearch");
+    }
+
   d.addEventListener("search", e => {
     if (!e.target.matches('input[type="search"]')) return false;
+    if (!e.target.value) localStorage.removeItem("artistSearch");
   });
 
   d.addEventListener("submit", e => {
     if (!e.target.matches(".search-form")) return false;
     e.preventDefault();
-    location.hash = `#artist.php?i=${e.target.query.value}`;
+    localStorage.setItem("artistSearch", e.target.query.value);
+    location.hash = `#/search.php?s=${e.target.query.value}`;
   });
-
   return $form;
 }

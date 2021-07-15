@@ -2,6 +2,7 @@ import { Header } from "./components/Header.js";
 import { Main } from "./components/Main.js";
 import { Loader } from "./components/Loader.js";
 import { Router } from "./components/Router.js";
+import { Hamburger } from "./components/Hamburger.js";
 import hamburguerButton from "./helpers/hamburger_btn.js";
 
 export function App () {
@@ -11,6 +12,7 @@ export function App () {
   $root.appendChild(Header());
   $root.appendChild(Main());
   $root.appendChild(Loader());
+  $root.appendChild(Hamburger());
 
   Router();
   hamburguerButton("#panel", ("#panel-btn"));

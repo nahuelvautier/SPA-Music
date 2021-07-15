@@ -2,8 +2,8 @@ const NAME = "theaudiodb",
   DOMAIN = `https://${NAME}.com`,
   DEV = `${DOMAIN}/api/v1/json`,
   KEY = `${DEV}/1`,
-  CONNECT= `${KEY}/search.php?s=`,
-  ARTIST = `${KEY}/artist.php?i=`;
+  CONNECT = `${KEY}/search.php?s=`,
+  ARTIST = `${KEY}/search.php?s=`;
   //DISCOGRAPHY = `${KEY}/discography.php?s=${ARTIST_NAME}`,
   //MUSIC_VID = `${KEY}/mvid.php?i=${ARTST_ID}`,
   //ALBUM = `${KEY}/album.php?i=${ARTIST_ID}`,
