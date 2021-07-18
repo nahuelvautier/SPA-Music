@@ -1,7 +1,7 @@
 export function clickEvent () {
   const d = document,
-    $panel = d.querySelector("#panel"),
-    $hamburguerBtn = d.querySelector("#panel-btn"),
+    $panel = d.getElementById("panel"),
+    $hamburguerBtn = d.getElementById("panel-btn"),
     $ulForm = d.querySelector(".ul-form"),
     $spanForm = d.querySelector(".span-form"),
     $input = d.querySelector(".search-input");

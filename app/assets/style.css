@@ -1,3 +1,4 @@
+/* RESET */
 :root {
   --main-color: ;
   --main-model-color: ;
@@ -30,6 +31,8 @@ main {
   align-items: center;
 }
 
+
+/* HEADER */
 .header {
   padding-bottom: 1rem;
   position: sticky;
@@ -46,6 +49,8 @@ main {
   margin-left: 2vw;
 }
 
+
+/* FORM HEADER */
 .search-form {
   margin-top: 1rem;
   display: flex;
@@ -56,30 +61,48 @@ main {
   margin-left: .2rem;
 }
 
+.search-form input::placeholder {
+  text-indent: 1vw;
+  font-weight: bold;
+}
+
+.search-form input[type="submit"] {
+  padding: .2rem .3rem;
+}
+
+.search-form input[type="submit"]:hover {
+  cursor: pointer;
+}
+
+
+/* SEARCH FILTER HEADER */
 .nav-form {
-  padding: .2rem;
+  padding-top: .2rem;
+  padding-bottom: .2rem;
   position: relative;
-  width: 5rem;
+  min-width: 5rem;
+  width: 10vw;
   text-align: center;
   border: thin solid #000;
 }
 
 .ul-form {
+  margin-top: .7rem;
   position: absolute;
   max-height: 0;
   overflow: hidden;
-  transition: all .5s ease-in-out;
+  transition: max-height .5s ease-in-out;
 }
 
-.ul-form.is-active {
-  margin-top: .5rem;
-  max-height: 4.5rem;
-}
+.ul-form.is-active { max-height: 4.5rem; }
 
 .nav-form li {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   list-style: none;
   height: 2rem;
-  width: 7rem;
+  min-width: 7rem;
+  width: 25vw;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -91,6 +114,7 @@ main {
   cursor: pointer;
 }
 
+/* PANEL HEADER */
 .panel {
   position: fixed;
   z-index: 998;
@@ -99,19 +123,24 @@ main {
   left: 0;
   right: 0;
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   overflow-y: auto;
   background-color: rgba(0, 0, 0, .9);
-  transition: transform .5s ease;
+  opacity: .65;
+  transition: all .5s ease;
   transform: translate(100%, 0);
 }
 
 .panel a {
-  padding: 4rem;
+  padding-top: 30%;
+  padding-bottom: 30%;
   font-size: 200%;
   font-weight: bolder;
-  display: grid;
-  grid-template-rows: repeat(auto-fit, 1fr);
-  justify-content: center;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
 }
 
 .panel.is-active {
@@ -134,13 +163,14 @@ main {
   background-color: salmon;
 }
 
+
+/* HOME */
 .home-article {
   margin-top: 3rem;
   width: 90%;
   text-align: center;
   display:flex;
   flex-direction: column;
-  align-content: center;
   align-items: center;
 }
 

@@ -10,7 +10,6 @@ export async function Router () {
 
   $main.innerHTML = null;
 
-  //$main.innerHTML = null;
   console.log(hash);
 
   if (!hash || hash === "#/home") {
