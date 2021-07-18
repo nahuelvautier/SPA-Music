@@ -74,17 +74,5 @@ export function HomePost (props) {
   $fragment.appendChild($clone);
   $article.appendChild($fragment)
 
-  d.addEventListener("click", e => {
-    if (e.target.matches(".albums-btn")) {
-      location.hash = `#/album.php?i=${e.target.dataset.id}`;
-      localStorage.setItem("IdArtist", e.target.dataset.id);
-    }
-
-    if (e.target.matches(".vids-btn")) {
-      location.hash = `#/mvid.php?i=${e.target.dataset.id}`;
-      localStorage.setItem("vidArtist", e.target.dataset.id);
-    }
-  });
-
   return $article;
 }
