@@ -32,21 +32,33 @@ export function HomePost (props) {
     $img = d.createElement("img"),
     $aside  = d.createElement("aside"),
     $albumsBtn = d.createElement("input"),
+    $vidsBtn = d.createElement("input"),
     $template = d.createElement("template").content,
     $fragment = d.createDocumentFragment();
 
   $article.id = "home-article";
   $article.classList.add("home-article");
+
   $h2.textContent = strArtist;
+
   $p.textContent = `De: ${intFormedYear} a ${intDiedYear}`;
+
   $img.classList.add("home-card");
   $img.src = urlPoster;
   $img.alt = strArtist;
+
   $aside.textContent = strBiographyEN;
+
+  //Albums
   $albumsBtn.dataset.id = idArtist;
   $albumsBtn.classList.add("albums-btn");
   $albumsBtn.type = "button";
-  $albumsBtn.value = "Ver albums"
+  $albumsBtn.value = "Ver albums";
+  //Vids
+  $vidsBtn.dataset.id = idArtist;
+  $vidsBtn.classList.add("vids-btn");
+  $vidsBtn.type = "button";
+  $vidsBtn.value = "Music videos";
 
 
   $template.appendChild($h2);
@@ -55,6 +67,7 @@ export function HomePost (props) {
   $template.appendChild($figure);
   $template.appendChild($aside);
   $template.appendChild($albumsBtn);
+  $template.appendChild($vidsBtn);
 
   const $clone = d.importNode($template, true);
 
@@ -65,6 +78,11 @@ export function HomePost (props) {
     if (e.target.matches(".albums-btn")) {
       location.hash = `#/album.php?i=${e.target.dataset.id}`;
       localStorage.setItem("IdArtist", e.target.dataset.id);
+    }
+
+    if (e.target.matches(".vids-btn")) {
+      location.hash = `#/mvid.php?i=${e.target.dataset.id}`;
+      localStorage.setItem("vidArtist", e.target.dataset.id);
     }
   });
 

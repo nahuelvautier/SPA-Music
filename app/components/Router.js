@@ -80,6 +80,23 @@ export async function Router () {
         console.log(json);
       }
     })
+  } else if (hash.includes("#/mvid")) {
+    const vids = localStorage.getItem("vidArtist");
+
+    await connect({
+      url: `${AUDIODB.MUSIC_VID}${vids}`,
+      cbSuccess: (json) => {
+        let htmlCode = "";
+        if (json.mvids === null) {
+          htmlCode = `<p class="error">No se encontraron videos musicales del artista.</p>`;
+          $main.innerHTML = htmlCode;
+        } else {
+          console.log(json);
+        }
+      }
+    })
+  } else {
+
   }
 
   d.getElementById("loader").style.display = "none";
