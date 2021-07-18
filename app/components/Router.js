@@ -13,7 +13,7 @@ export async function Router () {
   //$main.innerHTML = null;
   console.log(hash);
 
-  if (!hash || hash === "#/") {
+  if (!hash || hash === "#/Home") {
     //HOME
     await connect({
       
@@ -50,8 +50,8 @@ export async function Router () {
     });
   } else if (hash.includes("#/album")) {
     //ALBUMS
-    const albums = localStorage.getItem("artists");
-    console.log(albums);
+    const albums = localStorage.getItem("IdArtist");
+    //console.log(albums);
 
     await connect({
       url: `${AUDIODB.ALBUM}${albums}`,
@@ -66,8 +66,20 @@ export async function Router () {
         }
       },
     })
-  } else {
+  } else if (hash.includes("#/discography")) {
+    const query = localStorage.getItem("albumSearch");
+    //console.log(query);
 
+    if (!query) {
+      return false;
+    }
+
+    await connect({
+      url: `${AUDIODB.DISCOGRAPHY}${query}`,
+      cbSuccess: (json) => {
+        console.log(json);
+      }
+    })
   }
 
   d.getElementById("loader").style.display = "none";

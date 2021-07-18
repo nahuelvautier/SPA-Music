@@ -31,7 +31,6 @@ export function HomePost (props) {
     $figure = d.createElement("figure"),
     $img = d.createElement("img"),
     $aside  = d.createElement("aside"),
-    //$a = d.createElement("a"),
     $albumsBtn = d.createElement("input"),
     $template = d.createElement("template").content,
     $fragment = d.createDocumentFragment();
@@ -44,7 +43,6 @@ export function HomePost (props) {
   $img.src = urlPoster;
   $img.alt = strArtist;
   $aside.textContent = strBiographyEN;
-  //$a.href = "#/album.php?i=";
   $albumsBtn.dataset.id = idArtist;
   $albumsBtn.classList.add("albums-btn");
   $albumsBtn.type = "button";
@@ -56,10 +54,9 @@ export function HomePost (props) {
   $figure.appendChild($img);
   $template.appendChild($figure);
   $template.appendChild($aside);
-  //$a.appendChild($albumsBtn);
   $template.appendChild($albumsBtn);
 
-  let $clone = d.importNode($template, true);
+  const $clone = d.importNode($template, true);
 
   $fragment.appendChild($clone);
   $article.appendChild($fragment)
@@ -67,7 +64,7 @@ export function HomePost (props) {
   d.addEventListener("click", e => {
     if (e.target.matches(".albums-btn")) {
       location.hash = `#/album.php?i=${e.target.dataset.id}`;
-      localStorage.setItem("artists", e.target.dataset.id);
+      localStorage.setItem("IdArtist", e.target.dataset.id);
     }
   });
 

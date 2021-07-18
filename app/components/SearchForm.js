@@ -2,9 +2,22 @@ export function SearchForm () {
   const d = document, 
     $form = d.createElement("form"),
     $input = d.createElement("input"),
-    $inputBtn = d.createElement("input");
+    $inputBtn = d.createElement("input"),
+    $navForm = d.createElement("nav"),
+    $spanForm = d.createElement("span"),
+    $ulForm = d.createElement("ul"),
+    $liStForm = d.createElement("li"),
+    $liNdForm = d.createElement("li");
 
     $form.classList.add("search-form");
+    $navForm.classList.add("nav-form");
+    $ulForm.classList.add("ul-form");
+    $liStForm.classList.add("artist-selector");
+    $liNdForm.classList.add("albums-selector");
+
+    $spanForm.textContent = "Artista";
+    $liStForm.textContent = "Artista";
+    $liNdForm.textContent = "Albums";
 
     $input.type = "search";
     $input.name = "query";
@@ -13,6 +26,13 @@ export function SearchForm () {
     $inputBtn.type = "submit";
     $inputBtn.value = "Buscar";
 
+    
+    $ulForm.appendChild($liStForm);
+    $ulForm.appendChild($liNdForm);
+    $navForm.appendChild($spanForm);
+    $navForm.appendChild($ulForm);
+
+    $form.appendChild($navForm);
     $form.appendChild($input);
     $form.appendChild($inputBtn);
 
@@ -29,8 +49,31 @@ export function SearchForm () {
   d.addEventListener("submit", e => {
     if (!e.target.matches(".search-form")) return false;
     e.preventDefault();
-    localStorage.setItem("artistSearch", e.target.query.value);
-    location.hash = `#/search.php?s=${e.target.query.value}`;
+
+    if ($spanForm.textContent === "Artista") {
+      localStorage.setItem("artistSearch", e.target.query.value);
+      location.hash = `#/search.php?s=${e.target.query.value}`;
+    } else if ($spanForm.textContent === "Albums") {
+      localStorage.setItem("albumSearch", e.target.query.value);
+      location.hash = `#/discography.php?s=${e.target.query.value}`;
+    }
+  });
+
+  d.addEventListener("click", e => {
+    //console.log(e.target);
+    if (e.target.matches(".nav-form") || e.target.matches(".nav-form span")) {
+      $ulForm.classList.toggle("is-active");
+    }
+
+    if (e.target.matches(".artist-selector")) {
+      $spanForm.textContent = "Artista";
+      $ulForm.classList.remove("is-active");
+      $input.placeholder = "Busca un artista...";
+    } else if (e.target.matches(".albums-selector")) {
+      $spanForm.textContent = "Albums";
+      $ulForm.classList.remove("is-active");
+      $input.placeholder = "Albums por artista...";
+    }
   });
   return $form;
 }

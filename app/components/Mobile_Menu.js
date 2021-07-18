@@ -2,21 +2,21 @@ export function MobileMenu () {
   const $mobileMenu = document.createElement("nav"),
     $homeMobile = document.createElement("a"),
     $artistMobile = document.createElement("a"),
-    $albumMobile = document.createElement("a");
+    $albumsMobile = document.createElement("a");
 
-    $homeMobile.href = "#";
+    $homeMobile.href = "#/Home";
     $homeMobile.textContent = "Home";
 
     $artistMobile.href = "#/search.php?s=";
-    $artistMobile.textContent = "Artists";
+    $artistMobile.textContent = "Artistas";
 
-    $albumMobile.href = "#/discography.php?s=";
-    $albumMobile.textContent = "Albums";
+    $albumsMobile.href = "#/discography.php?s=";
+    $albumsMobile.textContent = "Discografía";
 
     $mobileMenu.classList.add("nav-container");
 
     $mobileMenu.appendChild($homeMobile);
     $mobileMenu.appendChild($artistMobile);
-    $mobileMenu.appendChild($albumMobile);
+    $mobileMenu.appendChild($albumsMobile);
   return $mobileMenu;
 }

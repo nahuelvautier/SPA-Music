@@ -4,6 +4,7 @@ const NAME = "theaudiodb",
   KEY = `${DEV}/1`,
   CONNECT = `${KEY}/search.php?s=`,
   ARTIST = `${KEY}/search.php?s=`,
+  DISCOGRAPHY = `${KEY}/discography.php?s=`,
   ALBUM = `${KEY}/album.php?i=`;
   //MUSIC_VID = `${KEY}/mvid.php?i=${ARTST_ID}`,
   //TRACK_DATA = `${KEY}/track.php?m=${ALBUM_ID}`,}
@@ -15,5 +16,6 @@ export default {
   KEY,
   CONNECT,
   ARTIST,
+  DISCOGRAPHY,
   ALBUM
 }
