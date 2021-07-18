@@ -13,7 +13,7 @@ export async function Router () {
   //$main.innerHTML = null;
   console.log(hash);
 
-  if (!hash || hash === "#/Home") {
+  if (!hash || hash === "#/home") {
     //HOME
     await connect({
       

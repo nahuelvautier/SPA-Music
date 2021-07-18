@@ -5,7 +5,7 @@ export function MobileMenu () {
     $albumsMobile = document.createElement("a"),
     $mvMobile = document.createElement("a");
 
-    $homeMobile.href = "#/Home";
+    $homeMobile.href = "#/home";
     $homeMobile.textContent = "Home";
 
     $artistMobile.href = "#/search.php?s=";
