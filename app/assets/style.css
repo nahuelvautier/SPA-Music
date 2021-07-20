@@ -28,10 +28,6 @@ body {
   flex-grow: 1;
   width: 100%;
   max-width: var(--container-width);
-  display: flex;
-  flex-direction: column;
-  overflow-x: hidden;
-  align-items: center;
 }
 
 h2 {

@@ -34,7 +34,6 @@ export function HomePost (props) {
     $aside  = d.createElement("aside"),
     $divBtns = d.createElement("div"),
     $albumsBtn = d.createElement("input"),
-    $vidsBtn = d.createElement("input"),
     $template = d.createElement("template").content,
     $fragment = d.createDocumentFragment();
 
@@ -57,11 +56,6 @@ export function HomePost (props) {
   $albumsBtn.classList.add("albums-btn");
   $albumsBtn.type = "button";
   $albumsBtn.value = "Ver albums";
-  //Vids
-  $vidsBtn.dataset.id = idArtist;
-  $vidsBtn.classList.add("vids-btn");
-  $vidsBtn.type = "button";
-  $vidsBtn.value = "Music videos";
 
 
   $template.appendChild($h2);
@@ -72,7 +66,6 @@ export function HomePost (props) {
   $aside.appendChild($pBio);
 
   $divBtns.appendChild($albumsBtn);
-  $divBtns.appendChild($vidsBtn);
 
   $template.appendChild($figure);
   $template.appendChild($aside);

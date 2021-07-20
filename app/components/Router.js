@@ -24,7 +24,7 @@ export async function Router () {
           $h2 = d.createElement("h2");
         posts.artists.forEach(post => $section.appendChild(HomePost(post)));
 
-        $h2.textContent = "Artistas, música y más!";
+        $h2.textContent = "Artistas, música, videos y más!";
         $main.appendChild($h2);
         $main.appendChild($section);
       },
@@ -95,14 +95,18 @@ export async function Router () {
       }
     })
   } else if (hash.includes("#/mvid")) {
-    const vids = localStorage.getItem("vidArtist");
+    const vids = localStorage.getItem("vidArtist"),
+      artistName = localStorage.getItem("artistSearch");
 
     await connect({
       url: `${AUDIODB.MUSIC_VID}${vids}`,
       cbSuccess: (json) => {
         let htmlCode = "";
         if (json.mvids === null) {
-          htmlCode = `<p class="error">No se encontraron videos musicales del artista.</p>`;
+          htmlCode = `
+          <p class="error">
+            No se encontraron videos musicales del último artista seleccionado "${artistName}"
+          </p>`;
           $main.innerHTML = htmlCode;
         } else {
           console.log(json);
@@ -110,7 +114,16 @@ export async function Router () {
       }
     })
   } else {
+    const tracks = localStorage.getItem("idAlbum");
 
+    await connect({
+      url: `${AUDIODB.TRACK_DATA}${tracks}`,
+      cbSuccess: (json) => {
+        console.log(json);
+        let htmlCode = "";
+        // json.track.forEach(json => console.log(json));
+      }
+    })
   }
 
   d.getElementById("loader").style.display = "none";

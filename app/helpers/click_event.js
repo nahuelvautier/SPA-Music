@@ -35,6 +35,15 @@ export function clickEvent () {
       localStorage.setItem("vidArtist", e.target.dataset.id);
     }
 
+    if (e.target.matches(".tracks-btn")) {
+      location.hash = `#/track.php?m=${e.target.dataset.id}`;
+      localStorage.setItem("idAlbum", e.target.dataset.id);
+    }
+
+    if (e.target.matches(".mobile-vids-anchor") && localStorage.getItem("vidArtist") === null) {
+      e.preventDefault();
+    };
+
     // Hamburger button
     if (e.target.matches("#panel-btn") || e.target.matches(`#panel-btn *`)) {
       $panel.classList.toggle("is-active");

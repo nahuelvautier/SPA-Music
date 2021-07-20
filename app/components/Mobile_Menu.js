@@ -16,6 +16,7 @@ export function MobileMenu () {
 
     $mvMobile.href = "#/mvid.php?i=";
     $mvMobile.textContent = "Music videos";
+    $mvMobile.classList.add("mobile-vids-anchor");
 
     $mobileMenu.classList.add("nav-container");
 
@@ -23,5 +24,6 @@ export function MobileMenu () {
     $mobileMenu.appendChild($artistMobile);
     $mobileMenu.appendChild($albumsMobile);
     $mobileMenu.appendChild($mvMobile);
+    
   return $mobileMenu;
 }
