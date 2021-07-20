@@ -114,6 +114,7 @@ main {
   cursor: pointer;
 }
 
+
 /* PANEL HEADER */
 .panel {
   position: fixed;
@@ -162,6 +163,7 @@ main {
   align-items: center;
   background-color: salmon;
 }
+
 
 
 /* HOME */

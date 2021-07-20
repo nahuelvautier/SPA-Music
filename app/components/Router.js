@@ -42,7 +42,7 @@ export async function Router () {
           htmlCode = `<p class="error">No se encontraron criterios de búsqueda para "${query}"</p>`;
         } else {
           console.log(searchArtist);
-          htmlCode += SearchPost(searchArtist);
+          searchArtist.artists.forEach(artist => htmlCode += SearchPost(artist));
         }
         $main.innerHTML = htmlCode;
       },

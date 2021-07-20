@@ -29,7 +29,7 @@ export function SearchForm () {
   $inputBtn.type = "submit";
   $inputBtn.value = "Buscar";
 
-    
+
   $ulForm.appendChild($liStForm);
   $ulForm.appendChild($liNdForm);
   $navForm.appendChild($spanForm);
