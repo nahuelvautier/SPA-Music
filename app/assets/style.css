@@ -24,11 +24,19 @@ body {
   display: flex;
 }
 
-main {
+#root {
   flex-grow: 1;
+  width: 100%;
+  max-width: var(--container-width);
   display: flex;
   flex-direction: column;
+  overflow-x: hidden;
   align-items: center;
+}
+
+h2 {
+  padding: 2rem;;
+  text-align: center;
 }
 
 
@@ -169,14 +177,15 @@ main {
 /* HOME */
 .home-article {
   margin-top: 3rem;
-  width: 90%;
-  text-align: center;
   display:flex;
   flex-direction: column;
+  align-content: center;
   align-items: center;
+  text-align: center;
 }
 
 .home-article aside {
+  width: 80%;;
   margin-top: 2rem;
   font-size: 110%;
 }
@@ -184,4 +193,39 @@ main {
 .home-card {
   min-width: 280px;
   width: 20rem;
+}
+
+.div-btns {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+}
+
+
+
+/* ALBUMS */
+.albums-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  text-align: center;
+}
+
+.albums-aside h3 {
+  margin-bottom: 1rem;
+  font-size: 120%;
+}
+
+.albums-aside figcaption {
+  margin-top: 1rem;
+  font-weight: bold;;
+}
+
+.albums-figure {
+  padding: 2rem;
+  background-color: #333355;
+}
+
+.albums-figure img {
+  width: 100%;
 }

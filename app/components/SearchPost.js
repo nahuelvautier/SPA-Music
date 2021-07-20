@@ -48,8 +48,10 @@ export function SearchPost (props) {
         </figure>
         <hr>
         <aside>
-          <input data-id="${idArtist}" class="albums-btn" type="button" value="Ver albums">
-          <input data-id="${idArtist}" class="vids-btn" type="button" value="Music videos">
+          <div class="div-btns">
+            <input data-id="${idArtist}" class="albums-btn" type="button" value="Ver albums">
+            <input data-id="${idArtist}" class="vids-btn" type="button" value="Music videos">
+          </div>
         </aside>
       </article>
       <article>

@@ -27,10 +27,12 @@ export function HomePost (props) {
   const d = document,
     $article = d.createElement("article"),
     $h2 = d.createElement("h2"),
-    $p = d.createElement("p"),
+    $pYears = d.createElement("p"),
+    $pBio = d.createElement("p"),
     $figure = d.createElement("figure"),
     $img = d.createElement("img"),
     $aside  = d.createElement("aside"),
+    $divBtns = d.createElement("div"),
     $albumsBtn = d.createElement("input"),
     $vidsBtn = d.createElement("input"),
     $template = d.createElement("template").content,
@@ -38,16 +40,17 @@ export function HomePost (props) {
 
   $article.id = "home-article";
   $article.classList.add("home-article");
+  $divBtns.classList.add("div-btns")
 
   $h2.textContent = strArtist;
 
-  $p.textContent = `De: ${intFormedYear} a ${intDiedYear}`;
+  $pYears.textContent = `De: ${intFormedYear} a ${intDiedYear}`;
 
   $img.classList.add("home-card");
   $img.src = urlPoster;
   $img.alt = strArtist;
 
-  $aside.textContent = strBiographyEN;
+  $pBio.textContent = strBiographyEN;
 
   //Albums
   $albumsBtn.dataset.id = idArtist;
@@ -62,12 +65,18 @@ export function HomePost (props) {
 
 
   $template.appendChild($h2);
-  $template.appendChild($p);
+  $template.appendChild($pYears);
+
   $figure.appendChild($img);
+
+  $aside.appendChild($pBio);
+
+  $divBtns.appendChild($albumsBtn);
+  $divBtns.appendChild($vidsBtn);
+
   $template.appendChild($figure);
   $template.appendChild($aside);
-  $template.appendChild($albumsBtn);
-  $template.appendChild($vidsBtn);
+  $template.appendChild($divBtns);
 
   const $clone = d.importNode($template, true);
 

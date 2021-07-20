@@ -1,5 +1,6 @@
 import AUDIODB from "../helpers/audio_db_api.js";
 import { connect } from "../helpers/fetch.js";
+import { AlbumsPost } from "./AlbumsPost.js";
 import { HomePost } from "./HomePost.js";
 import { SearchPost } from "./SearchPost.js";
 
@@ -18,8 +19,14 @@ export async function Router () {
       
       url: AUDIODB.CONNECT,
       cbSuccess: (posts) => {
-        console.log(posts);
-        posts.artists.forEach(post => $main.appendChild(HomePost(post)));
+        //console.log(posts);
+        const $section = d.createElement("section"),
+          $h2 = d.createElement("h2");
+        posts.artists.forEach(post => $section.appendChild(HomePost(post)));
+
+        $h2.textContent = "Artistas, música y más!";
+        $main.appendChild($h2);
+        $main.appendChild($section);
       },
     });
   } else if (hash.includes("#/search")) {
@@ -54,14 +61,22 @@ export async function Router () {
 
     await connect({
       url: `${AUDIODB.ALBUM}${albums}`,
-      cbSuccess: (json) => {
+      cbSuccess: (albums) => {
         let htmlCode = "";
 
-        if (json.album === null) {
-          htmlCode = `<p class="error">No se encontraron albums del artista"</p>`;
+        if (albums.album === null) {
+          htmlCode = `<p class="error">No se encontraron albums del artista."</p>`;
           $main.innerHTML = htmlCode;
         } else {
-          console.log(json);
+          //console.log(albums);
+          const $section = d.createElement("section"),
+            $h2 = d.createElement("h2");
+          albums.album.forEach(album => $section.appendChild(AlbumsPost(album)));
+          
+          $h2.textContent = "Albums";
+          $main.appendChild($h2);
+          $main.appendChild($section);
+          $section.classList.add("albums-section");
         }
       },
     })
