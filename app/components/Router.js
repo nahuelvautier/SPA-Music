@@ -70,11 +70,19 @@ export async function Router () {
         } else {
           //console.log(albums);
           const $section = d.createElement("section"),
-            $h2 = d.createElement("h2");
+            $h2 = d.createElement("h2"),
+            $inputFilter = d.createElement("input");
+
+          $inputFilter.id = "albums-filter"
+          $inputFilter.name = "albums";
+          $inputFilter.type = "search";
+          $inputFilter.placeholder = "Filtro...";
+
           albums.album.forEach(album => $section.appendChild(AlbumsPost(album)));
           
           $h2.textContent = "Albums";
           $main.appendChild($h2);
+          $main.appendChild($inputFilter);
           $main.appendChild($section);
           $section.classList.add("albums-section");
         }

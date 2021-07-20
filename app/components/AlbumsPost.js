@@ -25,7 +25,6 @@ export function AlbumsPost (props) {
     $aside = d.createElement("aside"),
     $figure = d.createElement("figure"),
     $img = d.createElement("img"),
-    $p = d.createElement("p"),
     $divBtns = d.createElement("div"),
     $input = d.createElement("input"),
     $figcaption = d.createElement("figcaption"),
@@ -34,6 +33,7 @@ export function AlbumsPost (props) {
 
   $article.classList.add("albums-article");
   $aside.classList.add("albums-aside");
+  $h3.classList.add("albums-h3");
   $figure.classList.add("albums-figure");
   $input.classList.add("tracks-btn");
   $divBtns.classList.add("div-btns");
@@ -44,8 +44,6 @@ export function AlbumsPost (props) {
   $img.alt = strAlbum;
   $figcaption.innerHTML = `Lanzado en: ${intYearReleased}<br>Género: ${strGenre}<br>Estilo: ${strStyle}<br>Score: ${intScore} / 10`;
 
-  //$p.textContent = strDescriptionEN;
-
   $input.dataset.id = idAlbum;
   $input.classList.add("tracks-btn");
   $input.type = "button";
@@ -55,7 +53,6 @@ export function AlbumsPost (props) {
   
   $aside.appendChild($figure);
   $aside.appendChild($divBtns);
-  $aside.appendChild($p);
   
   $figure.appendChild($h3);
   $figure.appendChild($img);

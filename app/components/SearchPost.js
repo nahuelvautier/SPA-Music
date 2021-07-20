@@ -35,6 +35,7 @@ export function SearchPost (props) {
       ? "./app/assets/not-found-image.svg"
       : strArtistWideThumb;
 
+  if (intFormedYear == null) intFormedYear = '"Unknown"';
   if (intDiedYear === null) intDiedYear = "Actualmente";
   if (intMembers === null) intMembers = "";
   if (strBiographyES === null) strBiographyES = "";
@@ -44,8 +45,8 @@ export function SearchPost (props) {
       <article>
         <h2 class="search-post-title">${strArtist}</h2>
         <figure>
-          <img src="${urlLogo}"">
-        </figure>
+          <img src="${urlBanner}">
+          </figure>
         <hr>
         <aside>
           <div class="div-btns">
@@ -56,9 +57,8 @@ export function SearchPost (props) {
       </article>
       <article>
         <figure>
-          <img src="${urlBanner}">
-          <figcaption>${strArtist}</figcaption>
-          </figure>
+          <img src="${urlLogo}"">
+        </figure>
           <aside>
           <p>De: ${intFormedYear} a: ${intDiedYear}</p>
           <p>Desde: ${strCountry}</p>

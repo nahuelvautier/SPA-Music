@@ -3,7 +3,7 @@ import { Main } from "./components/Main.js";
 import { Loader } from "./components/Loader.js";
 import { Hamburger } from "./components/Hamburger.js";
 import { Router } from "./components/Router.js";
-import { clickEvent } from "./helpers/click_event.js";
+import { eventListeners } from "./helpers/event_listeners.js";
 
 export function App () {
   const $root = document.getElementById("root");
@@ -15,5 +15,5 @@ export function App () {
   $root.appendChild(Hamburger());
 
   Router();
-  clickEvent();
+  eventListeners();
 }

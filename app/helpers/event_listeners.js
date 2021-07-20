@@ -1,4 +1,4 @@
-export function clickEvent () {
+export function eventListeners () {
   const d = document,
     $panel = d.getElementById("panel"),
     $hamburguerBtn = d.getElementById("panel-btn"),
@@ -48,6 +48,37 @@ export function clickEvent () {
     if (e.target.matches("#panel-btn") || e.target.matches(`#panel-btn *`)) {
       $panel.classList.toggle("is-active");
       $hamburguerBtn.classList.toggle("is-active");
+    }
+  });
+
+  d.addEventListener("search", e => {
+    if (!e.target.matches('input[type="search"]')) return false;
+    if (!e.target.value) localStorage.removeItem("artistSearch");
+  });
+
+  d.addEventListener("submit", e => {
+    if (!e.target.matches(".search-form")) return false;
+    e.preventDefault();
+
+    if ($spanForm.textContent === "Artista") {
+      localStorage.setItem("artistSearch", e.target.query.value);
+      location.hash = `#/search.php?s=${e.target.query.value}`;
+    } else if ($spanForm.textContent === "Albums") {
+      localStorage.setItem("albumSearch", e.target.query.value);
+      location.hash = `#/discography.php?s=${e.target.query.value}`;
+    }
+  });
+
+  d.addEventListener("keyup", e =>{
+    const regex = new RegExp(e.target.value, "ig");
+
+    if (e.target.matches("#albums-filter")) {
+
+      d.querySelectorAll(".albums-article").forEach((h3) => {
+        h3.textContent.match(regex)
+          ? h3.classList.remove("filter")
+          : h3.classList.add("filter");
+      });
     }
   });
 }

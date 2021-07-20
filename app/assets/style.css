@@ -35,6 +35,17 @@ h2 {
   text-align: center;
 }
 
+.none {
+  display: none;
+}
+
+.filter {
+  visibility: hidden;
+  opacity: 0;
+  order: 1;
+  transition: visibility .3 ease;
+}
+
 
 /* HEADER */
 .header {
