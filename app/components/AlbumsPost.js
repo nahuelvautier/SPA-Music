@@ -33,7 +33,6 @@ export function AlbumsPost (props) {
 
   $article.classList.add("albums-article");
   $aside.classList.add("albums-aside");
-  $h3.classList.add("albums-h3");
   $figure.classList.add("albums-figure");
   $input.classList.add("tracks-btn");
   $divBtns.classList.add("div-btns");

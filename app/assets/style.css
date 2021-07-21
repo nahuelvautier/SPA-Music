@@ -35,16 +35,15 @@ h2 {
   text-align: center;
 }
 
-.none {
-  display: none;
-}
+.none { display: none }
 
 .filter {
   visibility: hidden;
-  opacity: 0;
+  opacity: .1;
   order: 1;
-  transition: visibility .3 ease;
 }
+
+.hidden { visibility: hidden }
 
 
 /* HEADER */
@@ -235,4 +234,22 @@ h2 {
 
 .albums-figure img {
   width: 100%;
+}
+
+/* TRACKS */
+.tracks-section {
+  margin: auto;
+  width: 90%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.tracks-article {
+  background-color: #333355;
+}
+
+.tracks-aside {
+  padding: 2rem 1rem;
+  text-align: center;
 }

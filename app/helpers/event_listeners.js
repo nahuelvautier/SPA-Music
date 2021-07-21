@@ -74,10 +74,10 @@ export function eventListeners () {
 
     if (e.target.matches("#albums-filter")) {
 
-      d.querySelectorAll(".albums-article").forEach((h3) => {
-        h3.textContent.match(regex)
-          ? h3.classList.remove("filter")
-          : h3.classList.add("filter");
+      d.querySelectorAll(".albums-article").forEach((article) => {
+        article.textContent.match(regex)
+          ? article.classList.remove("filter")
+          : article.classList.add("filter");
       });
     }
   });

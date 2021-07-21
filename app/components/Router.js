@@ -3,6 +3,7 @@ import { connect } from "../helpers/fetch.js";
 import { AlbumsPost } from "./AlbumsPost.js";
 import { HomePost } from "./HomePost.js";
 import { SearchPost } from "./SearchPost.js";
+import { TracksPost } from "./TracksPost.js";
 
 export async function Router () {
   const d = document,
@@ -75,7 +76,7 @@ export async function Router () {
 
           $inputFilter.id = "albums-filter"
           $inputFilter.name = "albums";
-          $inputFilter.type = "search";
+          $inputFilter.type = "text";
           $inputFilter.placeholder = "Filtro...";
 
           albums.album.forEach(album => $section.appendChild(AlbumsPost(album)));
@@ -126,10 +127,20 @@ export async function Router () {
 
     await connect({
       url: `${AUDIODB.TRACK_DATA}${tracks}`,
-      cbSuccess: (json) => {
-        console.log(json);
+      cbSuccess: (tracks) => {
+        console.log(tracks);
         let htmlCode = "";
+
+        const $section = d.createElement("section"),
+          $h2 = d.createElement("h2");
         // json.track.forEach(json => console.log(json));
+        tracks.track.forEach(track => $section.appendChild(TracksPost(track)));
+
+        $h2.textContent = "Tracks";
+
+        $main.appendChild($h2);
+        $main.appendChild($section);
+        $section.classList.add("tracks-section");
       }
     })
   }

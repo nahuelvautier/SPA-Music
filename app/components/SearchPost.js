@@ -35,7 +35,7 @@ export function SearchPost (props) {
       ? "./app/assets/not-found-image.svg"
       : strArtistWideThumb;
 
-  if (intFormedYear == null) intFormedYear = '"Unknown"';
+  if (intFormedYear == null) intFormedYear = '???????"';
   if (intDiedYear === null) intDiedYear = "Actualmente";
   if (intMembers === null) intMembers = "";
   if (strBiographyES === null) strBiographyES = "";
@@ -88,7 +88,8 @@ export function SearchPost (props) {
           <figcaption>Listen too in: <a href="${strLastFMChart}">Last.fm</a></figcaption>
         </figure>
       </article>
-    </section>`;
+    </section>
+  `;
 
   return $searchPost;
 }
