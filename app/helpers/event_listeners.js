@@ -9,7 +9,7 @@ export function eventListeners () {
   d.addEventListener("click", e => {
     //console.log(e.target);
 
-    // Nav form
+    // Nav form filter
     if (e.target.matches(".nav-form") || e.target.matches(".nav-form span")) {
       $ulForm.classList.toggle("is-active");
     }
@@ -38,6 +38,7 @@ export function eventListeners () {
     if (e.target.matches(".tracks-btn")) {
       location.hash = `#/track.php?m=${e.target.dataset.id}`;
       localStorage.setItem("idAlbum", e.target.dataset.id);
+      localStorage.setItem("albumName", e.target.dataset.album);
     }
 
     if (e.target.matches(".mobile-vids-anchor") && localStorage.getItem("vidArtist") === null) {
@@ -51,11 +52,13 @@ export function eventListeners () {
     }
   });
 
+  // Search input
   d.addEventListener("search", e => {
     if (!e.target.matches('input[type="search"]')) return false;
     if (!e.target.value) localStorage.removeItem("artistSearch");
   });
 
+  // Form submitter
   d.addEventListener("submit", e => {
     if (!e.target.matches(".search-form")) return false;
     e.preventDefault();
@@ -69,6 +72,7 @@ export function eventListeners () {
     }
   });
 
+  // Albums filter
   d.addEventListener("keyup", e =>{
     const regex = new RegExp(e.target.value, "ig");
 

@@ -1,9 +1,10 @@
 import AUDIODB from "../helpers/audio_db_api.js";
 import { connect } from "../helpers/fetch.js";
-import { AlbumsPost } from "./AlbumsPost.js";
 import { HomePost } from "./HomePost.js";
+import { AlbumsPost } from "./AlbumsPost.js";
 import { SearchPost } from "./SearchPost.js";
 import { TracksPost } from "./TracksPost.js";
+import { DiscographyPost } from "./DiscographyPost.js";
 
 export async function Router () {
   const d = document,
@@ -44,16 +45,15 @@ export async function Router () {
     await connect({
       url: `${AUDIODB.ARTIST}${query}`,
       cbSuccess: (searchArtist) => {
-        let htmlCode = "";
-
         if (searchArtist.artists === null) {
+          let htmlCode = "";
           htmlCode = `<p class="error">No se encontraron criterios de búsqueda para "${query}"</p>`;
         } else {
-          console.log(searchArtist);
+          //console.log(searchArtist);
           searchArtist.artists.forEach(artist => htmlCode += SearchPost(artist));
         }
         $main.innerHTML = htmlCode;
-      },
+      }
     });
   } else if (hash.includes("#/album")) {
     //ALBUMS
@@ -81,17 +81,16 @@ export async function Router () {
 
           albums.album.forEach(album => $section.appendChild(AlbumsPost(album)));
           
-          $h2.textContent = "Albums";
+          $h2.textContent = localStorage.getItem("artistSearch");
           $main.appendChild($h2);
           $main.appendChild($inputFilter);
           $main.appendChild($section);
           $section.classList.add("albums-section");
         }
-      },
-    })
+      }
+    });
   } else if (hash.includes("#/discography")) {
     const query = localStorage.getItem("albumSearch");
-    //console.log(query);
 
     if (!query) {
       return false;
@@ -99,10 +98,29 @@ export async function Router () {
 
     await connect({
       url: `${AUDIODB.DISCOGRAPHY}${query}`,
-      cbSuccess: (json) => {
-        console.log(json);
+      cbSuccess: (discography) => {
+        console.log(discography);
+
+        const query = localStorage.getItem("artistSearch"),
+          $section = d.createElement("section"),
+          $h2 = d.createElement("h2");
+
+        if (!query) {
+          d.getElementById("loader").style.display = "none";
+          return false;
+        } 
+          
+        if (discography.album === null) {
+          let htmlCode = `<p class="error">"No se encontró la discografía del artista ${query}"</p>`;
+          $main.innerHTML = htmlCode;
+        } else {
+          discography.album.forEach(album => $section.appendChild(DiscographyPost(album)));
+          $h2.textContent = `Some ${query}'s albums`;
+          $main.appendChild($h2);
+          $main.appendChild($section);
+        }
       }
-    })
+    });
   } else if (hash.includes("#/mvid")) {
     const vids = localStorage.getItem("vidArtist"),
       artistName = localStorage.getItem("artistSearch");
@@ -128,21 +146,21 @@ export async function Router () {
     await connect({
       url: `${AUDIODB.TRACK_DATA}${tracks}`,
       cbSuccess: (tracks) => {
-        console.log(tracks);
-        let htmlCode = "";
+        //console.log(tracks);
+        //let htmlCode = "";
 
         const $section = d.createElement("section"),
           $h2 = d.createElement("h2");
-        // json.track.forEach(json => console.log(json));
+
         tracks.track.forEach(track => $section.appendChild(TracksPost(track)));
 
-        $h2.textContent = "Tracks";
+        $h2.textContent = `${localStorage.getItem("artistSearch")} - ${localStorage.getItem("albumName")}`;
 
         $main.appendChild($h2);
         $main.appendChild($section);
         $section.classList.add("tracks-section");
       }
-    })
+    });
   }
 
   d.getElementById("loader").style.display = "none";

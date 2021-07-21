@@ -1,7 +1,6 @@
 export function AlbumsPost (props) {
   let {
     idAlbum, 
-    strArtist,
     strAlbum,
     strStyle, 
     strGenre,
@@ -10,7 +9,7 @@ export function AlbumsPost (props) {
     intScore
   } = props;
 
-  let urlAlbumImg = (strAlbumThumb=== null)
+  let urlAlbumImg = (strAlbumThumb === "")
     ? "./app/assets/not-found-image.svg"
     : strAlbumThumb;
 
@@ -44,6 +43,7 @@ export function AlbumsPost (props) {
   $figcaption.innerHTML = `Lanzado en: ${intYearReleased}<br>Género: ${strGenre}<br>Estilo: ${strStyle}<br>Score: ${intScore} / 10`;
 
   $input.dataset.id = idAlbum;
+  $input.dataset.album = strAlbum;
   $input.classList.add("tracks-btn");
   $input.type = "button";
   $input.value = "Ver tracks"
