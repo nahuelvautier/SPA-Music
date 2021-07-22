@@ -2,7 +2,7 @@ export function TracksPost (props) {
   let { strTrack, intDuration, strGenre, intTrackNumber } = props;
 
   const d = document,
-    $h3 = d.createElement("h3"),
+    $h4 = d.createElement("h4"),
     $article = d.createElement("article"),
     $aside = d.createElement("aside"),
     $pDuration = d.createElement("p"),
@@ -21,10 +21,10 @@ export function TracksPost (props) {
   $article.classList.add("tracks-article");
   $aside.classList.add("tracks-aside");
   
-  $h3.textContent = strTrack;
+  $h4.textContent = strTrack;
   $pGenreTrack.textContent = `Track ${intTrackNumber} / ${strGenre}`;
 
-  $aside.appendChild($h3);
+  $aside.appendChild($h4);
   $aside.appendChild($pDuration);
   $aside.appendChild($pGenreTrack);
   $template.appendChild($aside);

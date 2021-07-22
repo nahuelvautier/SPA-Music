@@ -56,6 +56,7 @@ export function eventListeners () {
   d.addEventListener("search", e => {
     if (!e.target.matches('input[type="search"]')) return false;
     if (!e.target.value) localStorage.removeItem("artistSearch");
+    if (!e.target.value) localStorage.removeItem("albumSearch");
   });
 
   // Form submitter

@@ -5,6 +5,7 @@ import { AlbumsPost } from "./AlbumsPost.js";
 import { SearchPost } from "./SearchPost.js";
 import { TracksPost } from "./TracksPost.js";
 import { DiscographyPost } from "./DiscographyPost.js";
+import { MusicVideos } from "./MusicVideosPost.js";
 
 export async function Router () {
   const d = document,
@@ -45,9 +46,9 @@ export async function Router () {
     await connect({
       url: `${AUDIODB.ARTIST}${query}`,
       cbSuccess: (searchArtist) => {
+        let htmlCode = "";
         if (searchArtist.artists === null) {
-          let htmlCode = "";
-          htmlCode = `<p class="error">No se encontraron criterios de búsqueda para "${query}"</p>`;
+          htmlCode = `<p class="error">No se encontraron criterios de búsqueda para  el artista "${query}"</p>`;
         } else {
           //console.log(searchArtist);
           searchArtist.artists.forEach(artist => htmlCode += SearchPost(artist));
@@ -101,7 +102,7 @@ export async function Router () {
       cbSuccess: (discography) => {
         console.log(discography);
 
-        const query = localStorage.getItem("artistSearch"),
+        const query = localStorage.getItem("albumSearch"),
           $section = d.createElement("section"),
           $h2 = d.createElement("h2");
 
@@ -127,16 +128,31 @@ export async function Router () {
 
     await connect({
       url: `${AUDIODB.MUSIC_VID}${vids}`,
-      cbSuccess: (json) => {
+      cbSuccess: (videos) => {
         let htmlCode = "";
-        if (json.mvids === null) {
+
+        if (videos.mvids === null) {
           htmlCode = `
           <p class="error">
             No se encontraron videos musicales del último artista seleccionado "${artistName}"
           </p>`;
+
           $main.innerHTML = htmlCode;
         } else {
-          console.log(json);
+          console.log(videos);
+          const $section = d.createElement("section"),
+            $h2 = d.createElement("h2"),
+            $h3 = d.createElement("h3"),
+            artistName = localStorage.getItem("artistSearch");
+          
+          videos.mvids.forEach(vids => $section.appendChild(MusicVideos(vids)));
+
+          $h2.textContent = artistName;
+          $h3.textContent = "Puede que algunos videos tengan restricción de edad.";
+          $main.appendChild($h2);
+          $main.appendChild($h3);
+          $main.appendChild($section);
+          $section.classList.add("mvids-section");
         }
       }
     })
