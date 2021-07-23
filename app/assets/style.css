@@ -37,7 +37,7 @@ h2 {
 
 .none { display: none }
 
-.filter {
+.filtred {
   visibility: hidden;
   opacity: .1;
   order: 1;

@@ -63,6 +63,5 @@ export function AlbumsPost (props) {
   $fragment.appendChild($clone);
   $article.appendChild($fragment);
 
-
   return $article;
 }

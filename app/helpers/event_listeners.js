@@ -27,22 +27,24 @@ export function eventListeners () {
     // localStorage getters
     if (e.target.matches(".albums-btn")) {
       location.hash = `#/album.php?i=${e.target.dataset.id}`;
-      localStorage.setItem("IdArtist", e.target.dataset.id);
+      localStorage.setItem("IdArtist", e.target.dataset.id); // to get albums from artist
     }
 
     if (e.target.matches(".vids-btn")) {
       location.hash = `#/mvid.php?i=${e.target.dataset.id}`;
-      localStorage.setItem("vidArtist", e.target.dataset.id);
+      localStorage.setItem("vidArtist", e.target.dataset.id); // to get videos from artist
     }
 
     if (e.target.matches(".tracks-btn")) {
       location.hash = `#/track.php?m=${e.target.dataset.id}`;
       localStorage.setItem("idAlbum", e.target.dataset.id);
       localStorage.setItem("albumName", e.target.dataset.album);
+      localStorage.removeItem("vidArtist");
+      // removing this variable avoid logic error clicking on menu after have ckicked the vids button
     }
 
     if (e.target.matches(".mobile-vids-anchor") && localStorage.getItem("vidArtist") === null) {
-      e.preventDefault();
+      e.preventDefault(); // to avoid visit the path without an id artist or "vid artist" in this case
     };
 
     // Hamburger button
@@ -78,11 +80,10 @@ export function eventListeners () {
     const regex = new RegExp(e.target.value, "ig");
 
     if (e.target.matches("#albums-filter")) {
-
       d.querySelectorAll(".albums-article").forEach((article) => {
         article.textContent.match(regex)
-          ? article.classList.remove("filter")
-          : article.classList.add("filter");
+          ? article.classList.remove("filtred")
+          : article.classList.add("filtred");
       });
     }
   });

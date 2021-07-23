@@ -16,5 +16,5 @@ export async function connect (props) {
       document.getElementById("main").appendChild($error);
 
       console.error(err);
-    })
+    });
 }

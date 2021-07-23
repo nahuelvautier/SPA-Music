@@ -3,28 +3,26 @@ export function MusicVideos (props) {
     $h6 = d.createElement("h6"),
     $article = d.createElement("article"),
     $aside = d.createElement("aside"),
-    $pDesc = d.createElement("p"),
     $iframe = d.createElement("iframe"),
     $template = d.createElement("template").content,
     $fragment = d.createDocumentFragment();
 
-  let { strTrack, strMusicVid, strDescriptionEn } = props;
+  let { strTrack, strMusicVid } = props;
 
-  const DOMAIN = strMusicVid,
-    EMBED = DOMAIN.replace("/watch?v=", "/embed/");
+  const ENDPOINT = strMusicVid,
+    ENDPOINT_EMBED = ENDPOINT.replace("/watch?v=", "/embed/");
+
+  $article.classList.add("mvideos-article");
 
   $h6.textContent = strTrack;
 
-  $iframe.src = EMBED;
+  $iframe.src = ENDPOINT_EMBED;
   $iframe.title = strTrack;
-
-  $pDesc.textContent = strDescriptionEn;
 
   $aside.appendChild($h6);
   $aside.appendChild($iframe);
 
-  $article.appendChild($aside);
-  $article.appendChild($pDesc);
+  $template.appendChild($aside);
 
   const $clone = d.importNode($template, true);
   $fragment.appendChild($clone);

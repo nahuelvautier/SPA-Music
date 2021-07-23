@@ -64,16 +64,18 @@ export async function Router () {
     await connect({
       url: `${AUDIODB.ALBUM}${albums}`,
       cbSuccess: (albums) => {
-        let htmlCode = "";
-
         if (albums.album === null) {
-          htmlCode = `<p class="error">No se encontraron albums del artista."</p>`;
+          let htmlCode = `<p class="error">No se encontraron albums del artista."</p>`;
           $main.innerHTML = htmlCode;
         } else {
           //console.log(albums);
           const $section = d.createElement("section"),
             $h2 = d.createElement("h2"),
             $inputFilter = d.createElement("input");
+
+          $section.classList.add("albums-section");
+
+          $h2.textContent = localStorage.getItem("artistSearch");
 
           $inputFilter.id = "albums-filter"
           $inputFilter.name = "albums";
@@ -82,11 +84,9 @@ export async function Router () {
 
           albums.album.forEach(album => $section.appendChild(AlbumsPost(album)));
           
-          $h2.textContent = localStorage.getItem("artistSearch");
           $main.appendChild($h2);
           $main.appendChild($inputFilter);
           $main.appendChild($section);
-          $section.classList.add("albums-section");
         }
       }
     });
@@ -94,29 +94,27 @@ export async function Router () {
     const query = localStorage.getItem("albumSearch");
 
     if (!query) {
+      d.getElementById("loader").style.display = "none";
       return false;
     }
 
     await connect({
       url: `${AUDIODB.DISCOGRAPHY}${query}`,
       cbSuccess: (discography) => {
-        console.log(discography);
+        //console.log(discography);
 
         const query = localStorage.getItem("albumSearch"),
           $section = d.createElement("section"),
           $h2 = d.createElement("h2");
-
-        if (!query) {
-          d.getElementById("loader").style.display = "none";
-          return false;
-        } 
           
         if (discography.album === null) {
           let htmlCode = `<p class="error">"No se encontró la discografía del artista ${query}"</p>`;
           $main.innerHTML = htmlCode;
         } else {
           discography.album.forEach(album => $section.appendChild(DiscographyPost(album)));
+
           $h2.textContent = `Some ${query}'s albums`;
+
           $main.appendChild($h2);
           $main.appendChild($section);
         }
@@ -129,30 +127,30 @@ export async function Router () {
     await connect({
       url: `${AUDIODB.MUSIC_VID}${vids}`,
       cbSuccess: (videos) => {
-        let htmlCode = "";
-
+        
         if (videos.mvids === null) {
-          htmlCode = `
+          let htmlCode = `
           <p class="error">
-            No se encontraron videos musicales del último artista seleccionado "${artistName}"
+            No se encontraron videos musicales del artista "${artistName}"
           </p>`;
 
           $main.innerHTML = htmlCode;
         } else {
-          console.log(videos);
+          //console.log(videos);
           const $section = d.createElement("section"),
             $h2 = d.createElement("h2"),
-            $h3 = d.createElement("h3"),
-            artistName = localStorage.getItem("artistSearch");
+            $h3 = d.createElement("h3");
+            
+          $section.classList.add("mvids-section");
+
+          $h2.textContent = "Music Videos";
+          $h3.textContent = "Puede que algunos videos tengan restricción de edad.";
           
           videos.mvids.forEach(vids => $section.appendChild(MusicVideos(vids)));
 
-          $h2.textContent = artistName;
-          $h3.textContent = "Puede que algunos videos tengan restricción de edad.";
           $main.appendChild($h2);
           $main.appendChild($h3);
           $main.appendChild($section);
-          $section.classList.add("mvids-section");
         }
       }
     })
@@ -163,19 +161,20 @@ export async function Router () {
       url: `${AUDIODB.TRACK_DATA}${tracks}`,
       cbSuccess: (tracks) => {
         //console.log(tracks);
-        //let htmlCode = "";
-
         const $section = d.createElement("section"),
           $h2 = d.createElement("h2");
 
-        tracks.track.forEach(track => $section.appendChild(TracksPost(track)));
+        $section.classList.add("tracks-section");
 
         $h2.textContent = `${localStorage.getItem("artistSearch")} - ${localStorage.getItem("albumName")}`;
 
+        tracks.track.forEach((track) =>
+          $section.appendChild(TracksPost(track))
+        );
+
         $main.appendChild($h2);
         $main.appendChild($section);
-        $section.classList.add("tracks-section");
-      }
+      },
     });
   }
 
