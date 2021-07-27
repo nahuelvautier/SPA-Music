@@ -1,10 +1,9 @@
-export function SearchPost (props) {
+export function ArtistsPost (props) {
   let {
     idArtist,
     strArtist,
     intFormedYear,
     intDiedYear,
-    intDisbanded,
     strGenre,
     strWebsite,
     strFacebook,
@@ -41,13 +40,13 @@ export function SearchPost (props) {
   if (strBiographyES === null) strBiographyES = "";
   
   const $searchPost = `
-    <section>
-      <article>
-        <h2 class="search-post-title">${strArtist}</h2>
-        <figure>
+    <section classs="artists-section">
+      <article class="artists-article">
+        <h2>${strArtist}</h2>
+        <figure class="figure-banner">
           <img src="${urlBanner}">
           </figure>
-        <hr>
+        <hr class="artists-hr">
         <aside>
           <div class="div-btns">
             <input data-id="${idArtist}" class="albums-btn" type="button" value="Ver albums">
@@ -56,34 +55,34 @@ export function SearchPost (props) {
         </aside>
       </article>
       <article>
-        <figure>
+        <figure class="figure-logo">
           <img src="${urlLogo}"">
         </figure>
-          <aside>
+          <aside class="aside-artists-info">
           <p>De: ${intFormedYear} a: ${intDiedYear}</p>
           <p>Desde: ${strCountry}</p>
           <p>Género: ${strGenre}</p>
         </aside>
       </article>
       <article>
-      <figure>
+      <figure class="figure-clearart">
         <img src="${urlClearart}" alt="${strArtist}">
         <figcaption></figcaption>
       </figure>
         <aside>
-          <ul>
+          <ul class="artists-ul">
             <li><a href="https://${strWebsite}" target="_blank" rel="noopener noreferrer">Website</a></li>
             <li><a href="https://${strFacebook}" target="_blank" rel="noopener noreferrer">Facebook</a></li>
             <li><a href="https://${strTwitter}" target="_blank" rel="noopener noreferrer">Twitter</a></li>
           </ul>
         </aside>
       </article>
-      <hr>
+      <hr class="artists-hr">
       <article>
-        <aside>
+        <aside class="artists-bio-container">
           <p>${strBiographyES}</p>
         </aside>
-        <figure>
+        <figure class="figure-wide">
           <img src="${urlWideThumb}" alt="${strArtist}">
           <figcaption>Listen too in: <a href="${strLastFMChart}">Last.fm</a></figcaption>
         </figure>

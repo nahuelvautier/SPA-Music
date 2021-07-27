@@ -1,5 +1,5 @@
-export function SearchForm () {
-  const d = document, 
+export function SearchForm() {
+  const d = document,
     $form = d.createElement("form"),
     $input = d.createElement("input"),
     $inputBtn = d.createElement("input"),
@@ -7,6 +7,7 @@ export function SearchForm () {
     $spanForm = d.createElement("span"),
     $ulForm = d.createElement("ul"),
     $liStForm = d.createElement("li"),
+    $hr = d.createElement("hr"),
     $liNdForm = d.createElement("li");
 
   $form.classList.add("search-form");
@@ -27,10 +28,10 @@ export function SearchForm () {
   $input.name = "query";
   $input.placeholder = "Búsqueda...";
   $inputBtn.type = "submit";
-  $inputBtn.value = "Buscar";
-
+  $inputBtn.value = "Go";
 
   $ulForm.appendChild($liStForm);
+  $ulForm.appendChild($hr);
   $ulForm.appendChild($liNdForm);
   $navForm.appendChild($spanForm);
   $navForm.appendChild($ulForm);
@@ -39,10 +40,9 @@ export function SearchForm () {
   $form.appendChild($input);
   $form.appendChild($inputBtn);
 
-  
-    if (location.hash.includes("#/search")) {
-      $input.value = localStorage.getItem("artistSearch");
-    }
+  if (location.hash.includes("#/search")) {
+    $input.value = localStorage.getItem("artistSearch");
+  }
 
   return $form;
 }
