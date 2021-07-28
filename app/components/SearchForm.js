@@ -27,6 +27,8 @@ export function SearchForm() {
   $input.type = "search";
   $input.name = "query";
   $input.placeholder = "Búsqueda...";
+  $input.autocomplete = "off";
+
   $inputBtn.type = "submit";
   $inputBtn.value = "Go";
 

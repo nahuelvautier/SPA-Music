@@ -82,8 +82,8 @@ export function eventListeners () {
     if (e.target.matches("#albums-filter")) {
       d.querySelectorAll(".albums-article").forEach((article) => {
         article.textContent.match(regex)
-          ? article.classList.remove("filtred")
-          : article.classList.add("filtred");
+          ? article.classList.remove("filtered")
+          : article.classList.add("filtered");
       });
     }
   });

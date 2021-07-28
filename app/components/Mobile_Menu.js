@@ -12,10 +12,10 @@ export function MobileMenu () {
   $artistMobile.textContent = "Artistas";
 
   $albumsMobile.href = "#/discography.php?s=";
-  $albumsMobile.textContent = "Discografía";
+  $albumsMobile.textContent = "Últimos albums";
 
   $mvMobile.href = "#/mvid.php?i=";
-  $mvMobile.textContent = "Music videos";
+  $mvMobile.textContent = "Videos musicales";
   $mvMobile.classList.add("mobile-vids-anchor");
   
   $mobileMenu.classList.add("nav-container");

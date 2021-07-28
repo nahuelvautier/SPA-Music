@@ -15,14 +15,14 @@ export function TracksPost (props) {
       seconds = ((ms % 60000) / 1000).toFixed(0);
 
     let date = `${minutes}:${(seconds < 10 ? "0" : "")}${seconds}`;
-    $pDuration.textContent = `Duración: ${date}`;
+    $pDuration.innerHTML = `<br>Duración: ${date}`;
   })(intDuration);
 
   $article.classList.add("tracks-article");
   $aside.classList.add("tracks-aside");
 
   $h4.textContent = strTrack;
-  $pGenreTrack.textContent = `Track ${intTrackNumber} / ${strGenre}`;
+  $pGenreTrack.innerHTML = `<br>Track ${intTrackNumber}<br><br>${strGenre}`;
 
   $aside.appendChild($h4);
   $aside.appendChild($pDuration);

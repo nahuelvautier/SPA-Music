@@ -9,7 +9,7 @@ export async function connect (props) {
 
       const $error = document.createElement("div"),
         $pError = document.createElement("p");
-      $error.classList.add(".error");
+      $pError.classList.add("error");
       $pError.textContent = `Error ${err.status}: ${message}`;
       
       $error.appendChild($pError);

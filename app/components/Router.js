@@ -118,7 +118,7 @@ export async function Router() {
             $section.appendChild(DiscographyPost(album))
           );
 
-          $h2.textContent = `Some ${query}'s albums`;
+          $h2.textContent = `Últimos albums de ${query}`;
 
           $main.appendChild($h2);
           $main.appendChild($section);
@@ -147,9 +147,8 @@ export async function Router() {
 
           $section.classList.add("mvids-section");
 
-          $h2.textContent = "Music Videos";
-          $h3.textContent =
-            "Puede que algunos videos tengan restricción de edad.";
+          $h2.textContent = "Videos musicales";
+          $h3.innerHTML = "Puede que algunos videos tengan restricción de edad,<br>y por ello no puedas reproducirlos.";
 
           videos.mvids.forEach((vids) =>
             $section.appendChild(MusicVideos(vids))

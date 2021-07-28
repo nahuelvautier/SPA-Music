@@ -39,7 +39,7 @@ export function HomePost (props) {
 
   $article.id = "home-article";
   $article.classList.add("home-article");
-  $divBtns.classList.add("div-btns")
+  $divBtns.classList.add("home-div-btns")
 
   $h2.textContent = strArtist;
 

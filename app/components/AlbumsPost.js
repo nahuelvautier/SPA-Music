@@ -16,7 +16,7 @@ export function AlbumsPost (props) {
   if (intYearReleased === null) intYearReleased = "N/A";
   if (strGenre === null) strGenre = "N/A";
   if (strStyle === null) strStyle = "N/A";
-  if (intScore == null) intScore = "0";
+  if (intScore == null) intScore = "N/A";
 
   const d = document,
     $article = d.createElement("article"),
@@ -34,13 +34,13 @@ export function AlbumsPost (props) {
   $aside.classList.add("albums-aside");
   $figure.classList.add("albums-figure");
   $input.classList.add("tracks-btn");
-  $divBtns.classList.add("div-btns");
+  $divBtns.classList.add("album-div-btns");
 
   $h3.textContent = strAlbum;
 
   $img.src = urlAlbumImg;
   $img.alt = strAlbum;
-  $figcaption.innerHTML = `Lanzado en: ${intYearReleased}<br>Género: ${strGenre}<br>Estilo: ${strStyle}<br>Score: ${intScore} / 10`;
+  $figcaption.innerHTML = `Lanzado en: ${intYearReleased}<br><br>Género: ${strGenre}<br><br>Estilo: ${strStyle}<br><br>Score: ${intScore}`;
 
   $input.dataset.id = idAlbum;
   $input.dataset.album = strAlbum;

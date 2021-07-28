@@ -1,43 +1,75 @@
 export function ArtistsPost (props) {
   let {
-    idArtist,
-    strArtist,
-    intFormedYear,
-    intDiedYear,
-    strGenre,
-    strWebsite,
-    strFacebook,
-    strTwitter,
+    idArtist, strArtist,
+    intFormedYear, intDiedYear, intMembers,
+    strGenre, strCountry,
+    strWebsite, strFacebook, strTwitter,
     strBiographyES,
-    intMembers,
-    strCountry,
-    strArtistLogo,
-    strArtistClearart,
-    strArtistWideThumb,
-    strArtistBanner,
+    strArtistBanner, strArtistLogo, strArtistClearart, strArtistWideThumb,
+    strArtistFanart, strArtistFanart2, strArtistFanart3, strArtistFanart4,
     strLastFMChart
   } = props;
 
-  let urlLogo = (strArtistLogo === null)
-    ? ""
-    : strArtistLogo,
-    
-      urlBanner = (strArtistBanner === null)
-      ? "./app/assets/cover-not-found.svg"
-      : strArtistBanner,
-    
-      urlClearart = (strArtistClearart === null)
-      ? "./app/assets/not-found-image.svg"
-      : strArtistClearart,
-    
-      urlWideThumb = (strArtistWideThumb === null)
-      ? "./app/assets/not-found-image.svg"
-      : strArtistWideThumb;
+  let urlLogo = strArtistLogo === null ? "" : strArtistLogo,
+    urlBanner =
+      strArtistBanner === null
+        ? "./app/assets/cover-not-found.svg"
+        : strArtistBanner,
 
-  if (intFormedYear == null) intFormedYear = '???????"';
-  if (intDiedYear === null) intDiedYear = "Actualmente";
+    urlClearart = strArtistClearart,
+    urlWideThumb = strArtistWideThumb,
+    integrants;
+
+  if (strArtistClearart === null)  urlClearart = strArtistFanart;
+  if (strArtistFanart === null) urlClearart = strArtistFanart2;
+  if (strArtistFanart2 === null) urlClearart = strArtistFanart3;
+  if (strArtistFanart3 === null) urlClearart = strArtistFanart4;
+  if (strArtistFanart4 === null) false;
+  
+  if (urlClearart === null || urlClearart === false || urlClearart === undefined) {
+    setTimeout(() => {
+      urlClearart = "";
+      document.querySelector(".img-clearart").src = "./app/assets/not-found-image.svg";
+      document.querySelector(".img-clearart").style.width = "50%";
+      document.querySelector(".img-clearart").style.margin = "0 auto";
+    }, 1);
+  }
+  
+
+  if (strArtistClearart === null && strArtistWideThumb  === null) {
+    urlWideThumb = strArtistFanart2 || strArtistFanart3;
+  }
+
+  if (strArtistFanart2 === null || strArtistFanart2 === "") {
+    urlWideThumb = strArtistFanart3 || strArtistFanart4;
+  }
+
+  if (strArtistFanart3 === null || strArtistFanart3 === "") {
+    urlWideThumb  = strArtistFanart4 || false;
+  }
+
+  if (strArtistFanart4 === null || strArtistFanart4 === "") {
+    false;
+  }
+
+  if (urlWideThumb === null || urlWideThumb === false || urlWideThumb === undefined) {
+    setTimeout(() => {
+      urlWideThumb = "";
+      document.querySelector(".img-wide").src = "./app/assets/not-found-image.svg";
+      document.querySelector(".img-wide").style.width = "50%";
+      document.querySelector(".img-wide").style.margin = "0 auto";
+    }, 1);
+  }
+
+  if (intFormedYear == null) intFormedYear = 'Unknown';
+  if (intDiedYear === null) intDiedYear = "Unknown";
   if (intMembers === null) intMembers = "";
   if (strBiographyES === null) strBiographyES = "";
+  if (intMembers > 1) {
+    integrants = "Integrantes de banda sonora";
+  } else {
+    integrants = "Miembro solista";
+  }
   
   const $searchPost = `
     <section classs="artists-section">
@@ -59,15 +91,15 @@ export function ArtistsPost (props) {
           <img src="${urlLogo}"">
         </figure>
           <aside class="aside-artists-info">
-          <p>De: ${intFormedYear} a: ${intDiedYear}</p>
           <p>Desde: ${strCountry}</p>
-          <p>Género: ${strGenre}</p>
+          <p>Tocando: ${strGenre}</p>
+          <p>${intMembers} ${integrants}</p>
+          <p>De: ${intFormedYear} a: ${intDiedYear}</p>
         </aside>
       </article>
       <article>
       <figure class="figure-clearart">
-        <img src="${urlClearart}" alt="${strArtist}">
-        <figcaption></figcaption>
+        <img class="img-clearart" src="${urlClearart}" alt="${strArtist}">
       </figure>
         <aside>
           <ul class="artists-ul">
@@ -83,8 +115,8 @@ export function ArtistsPost (props) {
           <p>${strBiographyES}</p>
         </aside>
         <figure class="figure-wide">
-          <img src="${urlWideThumb}" alt="${strArtist}">
-          <figcaption>Listen too in: <a href="${strLastFMChart}">Last.fm</a></figcaption>
+          <img class="img-wide" src="${urlWideThumb}" alt="${strArtist}">
+          <figcaption class="figure-lastfm">Listen too in: <a href="${strLastFMChart}" target="_blank">Last.fm</a></figcaption>
         </figure>
       </article>
     </section>
