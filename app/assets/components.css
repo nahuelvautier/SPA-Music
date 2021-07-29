@@ -90,7 +90,7 @@
 .search-form input {
   margin-left: 0.2rem;
   font-style: italic;
-  font-weight: bolder;
+  font-weight: bold;
   outline-color: var(--main-model-color);
 }
 
@@ -180,6 +180,24 @@
   background-color: #fff;
 }
 
+
+
+/* DESKTOP MENU */
+.desktop-navbar {
+  position: fixed;
+  top: 15rem;
+  left: 0;
+  height: 80vh;
+  width: 10%;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  background-color: var(--main-color);
+}
+
+.desktop-navbar a {
+  color: var(--second-model-color);
+}
 
 
 
@@ -400,4 +418,19 @@ main > h3 {
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
   text-align: center;
+}
+
+/* FOOTER */
+
+.footer {
+  margin: 0 auto;
+  margin-top: 4rem;
+  padding: 1rem;
+  padding-top: 2.5rem;
+  width: 100%;
+  display: block;
+  font-size: 115%;
+  text-align: center;
+  color: #fff;
+  background-image: linear-gradient(var(--second-color), var(--main-color));
 }

@@ -14,7 +14,7 @@ export async function Router() {
 
   $main.innerHTML = null;
 
-  console.log(hash);
+  //console.log(hash);
 
   if (!hash || hash === "#/home") {
     //HOME
@@ -29,7 +29,7 @@ export async function Router() {
         $h2.textContent = "Artistas, música, videos y más!";
         $main.appendChild($h2);
         $main.appendChild($section);
-      },
+      }
     });
   } else if (hash.includes("#/search")) {
     //SEARCH
@@ -55,7 +55,7 @@ export async function Router() {
           );
         }
         $main.innerHTML = htmlCode;
-      },
+      }
     });
   } else if (hash.includes("#/album")) {
     //ALBUMS
@@ -76,22 +76,20 @@ export async function Router() {
 
           $section.classList.add("albums-section");
 
-          $h2.textContent = localStorage.getItem("artistSearch");
+          $h2.textContent = localStorage.getItem("artistSearch").toUpperCase();
 
           $inputFilter.id = "albums-filter";
           $inputFilter.name = "albums";
           $inputFilter.type = "text";
           $inputFilter.placeholder = "Filtro...";
 
-          albums.album.forEach((album) =>
-            $section.appendChild(AlbumsPost(album))
-          );
+          albums.album.forEach((album) =>$section.appendChild(AlbumsPost(album)));
 
           $main.appendChild($h2);
           $main.appendChild($inputFilter);
           $main.appendChild($section);
         }
-      },
+      }
     });
   } else if (hash.includes("#/discography")) {
     const query = localStorage.getItem("albumSearch");
@@ -114,16 +112,14 @@ export async function Router() {
           let htmlCode = `<p class="error">"No se encontró la discografía del artista ${query}"</p>`;
           $main.innerHTML = htmlCode;
         } else {
-          discography.album.forEach((album) =>
-            $section.appendChild(DiscographyPost(album))
-          );
+          discography.album.forEach((album) => $section.appendChild(DiscographyPost(album)));
 
           $h2.textContent = `Últimos albums de ${query}`;
 
           $main.appendChild($h2);
           $main.appendChild($section);
         }
-      },
+      }
     });
   } else if (hash.includes("#/mvid")) {
     const vids = localStorage.getItem("vidArtist"),
@@ -133,11 +129,7 @@ export async function Router() {
       url: `${AUDIODB.MUSIC_VID}${vids}`,
       cbSuccess: (videos) => {
         if (videos.mvids === null) {
-          let htmlCode = `
-          <p class="error">
-            No se encontraron videos musicales del artista "${artistName}"
-          </p>`;
-
+          let htmlCode = `<p class="error">No se encontraron videos musicales del artista "${artistName}"</p>`;
           $main.innerHTML = htmlCode;
         } else {
           //console.log(videos);
@@ -150,15 +142,13 @@ export async function Router() {
           $h2.textContent = "Videos musicales";
           $h3.innerHTML = "Puede que algunos videos tengan restricción de edad,<br>y por ello no puedas reproducirlos.";
 
-          videos.mvids.forEach((vids) =>
-            $section.appendChild(MusicVideos(vids))
-          );
+          videos.mvids.forEach((vids) => $section.appendChild(MusicVideos(vids)));
 
           $main.appendChild($h2);
           $main.appendChild($h3);
           $main.appendChild($section);
         }
-      },
+      }
     });
   } else {
     const tracks = localStorage.getItem("idAlbum");
@@ -172,17 +162,14 @@ export async function Router() {
 
         $section.classList.add("tracks-section");
 
-        $h2.textContent = `${localStorage.getItem("artistSearch")} - ${localStorage.getItem("albumName")}`;
+        $h2.textContent = `${localStorage.getItem("artistSearch").toUpperCase()} - ${localStorage.getItem("albumName")}`;
 
-        tracks.track.forEach((track) =>
-          $section.appendChild(TracksPost(track))
-        );
+        tracks.track.forEach((track) => $section.appendChild(TracksPost(track)));
 
         $main.appendChild($h2);
         $main.appendChild($section);
-      },
+      }
     });
   }
-
   d.getElementById("loader").style.display = "none";
 }

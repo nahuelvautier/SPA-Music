@@ -32,14 +32,11 @@ export function HomePost (props) {
     $figure = d.createElement("figure"),
     $img = d.createElement("img"),
     $aside  = d.createElement("aside"),
-    $divBtns = d.createElement("div"),
-    $albumsBtn = d.createElement("input"),
     $template = d.createElement("template").content,
     $fragment = d.createDocumentFragment();
 
   $article.id = "home-article";
   $article.classList.add("home-article");
-  $divBtns.classList.add("home-div-btns")
 
   $h2.textContent = strArtist;
 
@@ -51,13 +48,6 @@ export function HomePost (props) {
 
   $pBio.textContent = strBiographyEN;
 
-  //Albums
-  $albumsBtn.dataset.id = idArtist;
-  $albumsBtn.classList.add("albums-btn");
-  $albumsBtn.type = "button";
-  $albumsBtn.value = "Ver albums";
-
-
   $template.appendChild($h2);
   $template.appendChild($pYears);
 
@@ -65,11 +55,8 @@ export function HomePost (props) {
 
   $aside.appendChild($pBio);
 
-  $divBtns.appendChild($albumsBtn);
-
   $template.appendChild($figure);
   $template.appendChild($aside);
-  $template.appendChild($divBtns);
 
   const $clone = d.importNode($template, true);
 

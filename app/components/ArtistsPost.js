@@ -2,7 +2,7 @@ export function ArtistsPost (props) {
   let {
     idArtist, strArtist,
     intFormedYear, intDiedYear, intMembers,
-    strGenre, strCountry,
+    strDisbanded, strGenre, strCountry,
     strWebsite, strFacebook, strTwitter,
     strBiographyES,
     strArtistBanner, strArtistLogo, strArtistClearart, strArtistWideThumb,
@@ -18,7 +18,16 @@ export function ArtistsPost (props) {
 
     urlClearart = strArtistClearart,
     urlWideThumb = strArtistWideThumb,
-    integrants;
+    integrants,
+    actually;
+    
+    if (strDisbanded === "Yes") {
+      if (intDiedYear === null) intDiedYear = "Unknown";
+      actually = intDiedYear;
+    } else {
+      actually = "Actualmente";
+    }
+
 
   if (strArtistClearart === null)  urlClearart = strArtistFanart;
   if (strArtistFanart === null) urlClearart = strArtistFanart2;
@@ -28,7 +37,6 @@ export function ArtistsPost (props) {
   
   if (urlClearart === null || urlClearart === false || urlClearart === undefined) {
     setTimeout(() => {
-      urlClearart = "";
       document.querySelector(".img-clearart").src = "./app/assets/not-found-image.svg";
       document.querySelector(".img-clearart").style.width = "50%";
       document.querySelector(".img-clearart").style.margin = "0 auto";
@@ -54,7 +62,6 @@ export function ArtistsPost (props) {
 
   if (urlWideThumb === null || urlWideThumb === false || urlWideThumb === undefined) {
     setTimeout(() => {
-      urlWideThumb = "";
       document.querySelector(".img-wide").src = "./app/assets/not-found-image.svg";
       document.querySelector(".img-wide").style.width = "50%";
       document.querySelector(".img-wide").style.margin = "0 auto";
@@ -62,16 +69,15 @@ export function ArtistsPost (props) {
   }
 
   if (intFormedYear == null) intFormedYear = 'Unknown';
-  if (intDiedYear === null) intDiedYear = "Unknown";
   if (intMembers === null) intMembers = "";
   if (strBiographyES === null) strBiographyES = "";
   if (intMembers > 1) {
-    integrants = "Integrantes de banda sonora";
+    integrants = "Integrantes en la banda";
   } else {
     integrants = "Miembro solista";
   }
   
-  const $searchPost = `
+  const $artistPost = `
     <section classs="artists-section">
       <article class="artists-article">
         <h2>${strArtist}</h2>
@@ -94,7 +100,7 @@ export function ArtistsPost (props) {
           <p>Desde: ${strCountry}</p>
           <p>Tocando: ${strGenre}</p>
           <p>${intMembers} ${integrants}</p>
-          <p>De: ${intFormedYear} a: ${intDiedYear}</p>
+          <p>De: ${intFormedYear} a: ${actually}</p>
         </aside>
       </article>
       <article>
@@ -122,5 +128,5 @@ export function ArtistsPost (props) {
     </section>
   `;
 
-  return $searchPost;
+  return $artistPost;
 }

@@ -9,7 +9,7 @@ export function AlbumsPost (props) {
     intScore
   } = props;
 
-  let urlAlbumImg = (strAlbumThumb === "")
+  let urlAlbumImg = (strAlbumThumb === "" || strAlbumThumb === null)
     ? "./app/assets/not-found-image.svg"
     : strAlbumThumb;
 
