@@ -5,6 +5,8 @@ export function MobileMenu () {
     $albumsMobile = document.createElement("a"),
     $mvMobile = document.createElement("a");
 
+  $mobileMenu.classList.add("mobile-navbar");
+
   $homeMobile.href = "#/home";
   $homeMobile.textContent = "Home";
   $homeMobile.classList.add("mobile-home-anchor");
@@ -21,7 +23,6 @@ export function MobileMenu () {
   $mvMobile.textContent = "Videos musicales";
   $mvMobile.classList.add("mobile-vids-anchor");
   
-  $mobileMenu.classList.add("nav-container");
   $mobileMenu.appendChild($homeMobile);
   $mobileMenu.appendChild($artistMobile);
   $mobileMenu.appendChild($albumsMobile);

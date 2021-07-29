@@ -23,7 +23,7 @@ h6 {
 
 a {
   color: var(--main-color);
-  transition: color 0.3s ease;
+  transition: color .3s ease;
 }
 
 a:hover {
@@ -41,12 +41,12 @@ a:hover {
 }
 
 .div-btns input, .home-div-btns input, .album-div-btns input {
-  padding: 0.5rem;
+  padding: .5rem;
   border-radius: 5%;
   border: thin solid #eee;
   color: #eee;
   background-color: var(--main-color);
-  transition: all 0.3s ease;
+  transition: all .3s ease;
 }
 
 .div-btns input:hover, .album-div-btns input:hover {
@@ -60,6 +60,25 @@ a:hover {
 
 /*MQ*/
 @media screen and (min-width: 1024px) {
+  body::-webkit-scrollbar {
+    width: .5rem;
+  }
+
+  body::-webkit-scrollbar-track {
+    background-color: #000;
+  }
+
+  body::-webkit-scrollbar-thumb {
+    background-color: var(--main-color);
+  }
+
+  main {
+    margin-left: 14rem;
+    margin-right: 1rem;
+  }
+
+
+
   /* HOME */
   /* .home-article {
     margin-top: 3rem;
@@ -69,4 +88,6 @@ a:hover {
     align-items: center;
     text-align: center;
   } */
+
+
 }

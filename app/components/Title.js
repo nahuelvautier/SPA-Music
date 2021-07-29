@@ -1,5 +1,11 @@
 export function Title () {
-  const $title = document.createElement("h1");
+  const $title = document.createElement("h1"),
+    $a = document.createElement("a");
+
+  $a.href = "#/home";
   $title.textContent = "Musicapp";
-  return $title;
+
+  $a.appendChild($title);
+
+  return $a;
 }

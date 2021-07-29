@@ -9,6 +9,10 @@
   background-color: var(--main-color);
 }
 
+.header a {
+  text-decoration: none;
+}
+
 
 
 /* SEARCH FILTER HEADER */
@@ -184,19 +188,73 @@
 
 /* DESKTOP MENU */
 .desktop-navbar {
+  margin: 0;
+  padding: 0;
+  width: 5rem;
+  height: 70vh;
   position: fixed;
-  top: 15rem;
+  top: 7rem;
   left: 0;
-  height: 80vh;
-  width: 10%;
-  display: flex;
-  flex-flow: column wrap;
+  text-align: center;
+  display: flex; 
+  flex-direction: column;
   align-items: center;
-  background-color: var(--main-color);
+  background-image: linear-gradient(to top, var(--second-color), var(--second-model-color));
+  transition: width 200ms ease;
+}
+
+.desktop-navbar:hover {
+  width: 12rem;
+}
+
+.desktop-arrow-menu {
+  position: relative;
+  top: 1rem;
+  border: 1px solid rgb(57 65 81 / .5);
+  background-color: rgb(47, 55, 71);
+}
+
+.fa-angle-double-right {
+  margin: auto;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 150%;
+  color: #777;
+}
+
+.desktop-navbar:hover .fa-angle-double-right {
+  transform: rotate(-540deg);
+}
+
+.desktop-navbar .fa-angle-double-right {
+  transform: rotate(0deg);
+  transition: transform 200ms ease;
+}
+
+.desktop-navbar > * {
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 100%;
+}
+
+.desktop-navbar hr {
+  margin: 0 auto;
+  width: 80%;
 }
 
 .desktop-navbar a {
-  color: var(--second-model-color);
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  text-decoration: none;
+  color: var(--main-color);
+}
+
+.desktop-navbar a:hover {
+  text-decoration: underline;
+  color: var(--main-model-color);
+  background-color: #2f3747;
 }
 
 
@@ -408,6 +466,7 @@
 }
 
 
+
 /* MUSIC VIDEOS */
 main > h3 {
   text-align: center;
@@ -420,8 +479,9 @@ main > h3 {
   text-align: center;
 }
 
-/* FOOTER */
 
+
+/* FOOTER */
 .footer {
   margin: 0 auto;
   margin-top: 4rem;
