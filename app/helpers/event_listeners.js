@@ -2,6 +2,7 @@ export function eventListeners () {
   const d = document,
     $panel = d.getElementById("panel"),
     $hamburguerBtn = d.getElementById("panel-btn"),
+    $navForm = d.querySelector(".nav-form"),
     $ulForm = d.querySelector(".ul-form"),
     $spanForm = d.querySelector(".span-form"),
     $input = d.querySelector(".search-input");
@@ -11,6 +12,7 @@ export function eventListeners () {
 
     // Nav form filter
     if (e.target.matches(".nav-form") || e.target.matches(".nav-form span")) {
+      $navForm.classList.toggle("is-active");
       $ulForm.classList.toggle("is-active");
     }
 
@@ -40,7 +42,7 @@ export function eventListeners () {
       localStorage.setItem("idAlbum", e.target.dataset.id);
       localStorage.setItem("albumName", e.target.dataset.album);
       localStorage.removeItem("vidArtist");
-      // removing this variable avoid logic error clicking on menu after have ckicked the vids button
+      // removing this localStorage variable avoid logic error clicking on menu after have ckicked the vids button
     }
 
     if (e.target.matches(".mobile-vids-anchor") && localStorage.getItem("vidArtist") === null) {
@@ -85,6 +87,15 @@ export function eventListeners () {
           ? article.classList.remove("filtered")
           : article.classList.add("filtered");
       });
+    }
+  });
+
+  // Mouseover
+  d.addEventListener("mouseover", e => {
+    if (e.target.matches(".nav-form") || e.target.matches(".nav-form > *") || e.target.matches(".nav-form li")) {
+      $ulForm.classList.add("mouseover-active");
+    } else {
+      $ulForm.classList.remove("mouseover-active");
     }
   });
 }
