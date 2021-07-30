@@ -17,5 +17,5 @@ export function responsiveMedia(mq) {
   }
 
   responsive(breakpoint);
-  breakpoint.addListener(responsive);
+  breakpoint.addEventListener("change", responsive);
 }
