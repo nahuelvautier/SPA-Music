@@ -1,3 +1,4 @@
+import { responsiveMedia } from "./helpers/responsive_object.js";
 import { Header } from "./components/Header.js";
 import { Hamburger } from "./components/Hamburger.js";
 import { DesktopMenu } from "./components/DesktopMenu.js";
@@ -18,6 +19,7 @@ export function App () {
   $root.appendChild(Loader());
   $root.appendChild(Footer());
 
+  responsiveMedia("(min-width: 1024px)");
   Router();
   eventListeners();
 }
