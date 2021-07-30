@@ -65,16 +65,16 @@ a:hover {
   }
 
   body::-webkit-scrollbar-track {
-    background-color: #000;
+    background-color: #33333322;
   }
 
   body::-webkit-scrollbar-thumb {
-    background-color: var(--main-color);
+    background-color: #ab058277;
   }
 
   main {
     margin-left: 14rem;
-    margin-right: 1rem;
+    margin-right: 2rem;
   }
 
 
