@@ -14,6 +14,9 @@ export function eventListeners () {
     if (e.target.matches(".nav-form") || e.target.matches(".nav-form span")) {
       $navForm.classList.toggle("is-active");
       $ulForm.classList.toggle("is-active");
+      if (!($navForm.classList === "is-active")) {
+        $ulForm.classList.remove("mouseover-active");
+      }
     }
 
     if (e.target.matches(".artist-selector")) {
@@ -106,13 +109,11 @@ export function eventListeners () {
       d.querySelector(".fa-angle-double-right").style.transform = "rotate(-540deg)";
       d.querySelector(".fa-angle-double-right").style.left = "0";
       d.querySelector(".fa-angle-double-right").style.transition = "all .5s ease";
-      $ulForm.classList.remove("mouseover-active");
     } else {
       d.querySelector(".fa-angle-double-right").style.transform = "rotate(0deg)";
       d.querySelector(".fa-angle-double-right").style.position = "relative";
       d.querySelector(".fa-angle-double-right").style.left = "5rem";
       d.querySelector(".fa-angle-double-right").style.transition = "all .35s ease";
-      $ulForm.classList.remove("mouseover-active");
     }
   });
 }
