@@ -1,9 +1,12 @@
 :root {
   --container-width: 1920px;
-  --main-color: #df49a6;
-  --main-model-color: #ff7eee;
-  --second-color: #23232e;
-  --second-model-color: #292c3f;
+  --main-color: #cf7dbc;
+  /* --main-color: #df49a6; */
+  --main-model-color: #efcdec;
+  /* --main-model-color: #ff7eee; */
+  --dark-color-one: #23232e;
+  --dark-color-two: #292c3f;
+  --dark-color-three: #2f3747;
 }
 
 html {
@@ -27,16 +30,13 @@ body {
   overflow-x: hidden;
   display: flex;
   flex-direction: column;
-  background-color: var(--second-color);
+  background-color: var(--dark-color-one);
 }
 
 #root {
-  /* display: flex;
-  flex-direction: column; */
   flex-grow: 1;
   width: 100%;
   max-width: var(--container-width);
-  /* color: #efcdec; */ /* Color precioso */
 }
 
 main {
@@ -51,7 +51,7 @@ main {
 }
 
 ::selection {
-  background-color: var(--main-model-color);
+  background-color: var(--main-color);
 }
 
 .none {
@@ -74,5 +74,5 @@ main {
   text-align: center;
   font-size: 150%;
   color: var(--main-model-color);
-  background-color: var(--second-model-color);
+  background-color: var(--dark-color-two);
 }

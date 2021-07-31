@@ -20,10 +20,14 @@ export function eventListeners () {
       $spanForm.textContent = "Artista";
       $ulForm.classList.remove("is-active");
       $input.placeholder = "Busca un artista...";
+      $navForm.classList.remove("is-active");
+      $ulForm.classList.remove("mouseover-active");
     } else if (e.target.matches(".albums-selector")) {
       $spanForm.textContent = "Albums";
       $ulForm.classList.remove("is-active");
       $input.placeholder = "Albums por artista...";
+      $navForm.classList.remove("is-active");
+      $ulForm.classList.remove("mouseover-active");
     }
 
     // localStorage getters
