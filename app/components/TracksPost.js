@@ -18,6 +18,8 @@ export function TracksPost (props) {
     $pDuration.innerHTML = `<br>Duración: ${date}`;
   })(intDuration);
 
+  if (!strGenre) strGenre = "Género: N/A";
+
   $article.classList.add("tracks-article");
   $aside.classList.add("tracks-aside");
 

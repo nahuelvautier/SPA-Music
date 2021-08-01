@@ -95,7 +95,7 @@
 
 .search-input {
   min-width: 6rem;
-  width: 25%;
+  width: 35%;
   max-width: 12rem;
   text-indent: 1vw;
 }
@@ -109,7 +109,7 @@
 
 .search-form input::placeholder {
   font-style: normal;
-  color: #444;
+  color: var(--placeholder-color);
 }
 
 .search-form input[type="submit"] {
@@ -397,17 +397,23 @@
   padding: .5rem;
   margin: 3rem auto;
   min-width: 8rem;
-  width: 25%;
+  width: 50%;
+  max-width: 16rem;
   display: block;
   font-size: 90%;
   font-weight: bold;
   text-indent: .2vw;
   border-radius: 2rem;
+  border: .3rem solid var(--main-model-color);
   outline: none;
 }
 
+#albums-filter:focus {
+  border-color: var(--main-color);
+}
+
 #albums-filter::placeholder {
-  color: #444;
+  color: var(--placeholder-color);
 }
 
 .albums-section {

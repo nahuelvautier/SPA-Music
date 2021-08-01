@@ -82,6 +82,7 @@ export async function Router() {
           $inputFilter.name = "albums";
           $inputFilter.type = "text";
           $inputFilter.placeholder = "Filtro...";
+          $inputFilter.autocomplete = "off";
 
           albums.album.forEach((album) =>$section.appendChild(AlbumsPost(album)));
 
@@ -140,7 +141,7 @@ export async function Router() {
           $section.classList.add("mvids-section");
 
           $h2.textContent = "Videos musicales";
-          $h3.innerHTML = "Puede que algunos videos tengan restricción de edad,<br>y por ello no puedas reproducirlos.";
+          $h3.innerHTML = "Puede que algunos videos tengan restricción,<br>y por ello no puedas reproducirlos.";
 
           videos.mvids.forEach((vids) => $section.appendChild(MusicVideos(vids)));
 
