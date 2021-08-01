@@ -46,7 +46,7 @@ main {
 }
 
 #loader {
-  margin: 20% auto;
+  margin: 25% auto;
   display: block;
 }
 
@@ -62,6 +62,7 @@ main {
   visibility: hidden;
   opacity: 0.1;
   order: 1;
+  transition: all .3s ease;
 }
 
 .hidden {

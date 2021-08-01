@@ -25,11 +25,15 @@ export function DesktopMenu () {
   $nav.classList.add("desktop-navbar");
   $spanArrow.classList.add("desktop-arrow-menu");
 
+  $aHome.classList.add("desktop-home-anchor");
+  $aArtist.classList.add("desktop-artist-anchor");
+  $aDiscography.classList.add("desktop-discography-anchor");
+  $aVids.classList.add("desktop-vids-anchor");
+
   $spanHome.classList.add("span-icon");
   $spanArtist.classList.add("span-icon");
   $spanDiscography.classList.add("span-icon");
   $spanVids.classList.add("span-icon");
-  
   
   $aHome.href = "#/home";
   $aArtist.href = "#/search.php?s=";

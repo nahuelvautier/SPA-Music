@@ -48,13 +48,15 @@ export function eventListeners () {
       location.hash = `#/track.php?m=${e.target.dataset.id}`;
       localStorage.setItem("idAlbum", e.target.dataset.id);
       localStorage.setItem("albumName", e.target.dataset.album);
-      localStorage.removeItem("vidArtist");
-      // removing this localStorage variable avoid logic error clicking on menu after have ckicked the vids button
     }
 
     if (e.target.matches(".mobile-vids-anchor") && localStorage.getItem("vidArtist") === null) {
       e.preventDefault(); // to avoid visit the path without an id artist or "vid artist" in this case
     };
+
+    if (e.target.matches(".desktop-vids-anchor") || e.target.matches(".desktop-vids-anchor *") && localStorage.getItem("vidArtist") === null) {
+      e.preventDefault(); // to avoid visit the path without an id artist or "vid artist" in this case in desktop version
+    }
 
     // Hamburger button
     if (e.target.matches("#panel-btn") || e.target.matches(`#panel-btn *`)) {
@@ -114,6 +116,17 @@ export function eventListeners () {
       d.querySelector(".fa-angle-double-right").style.position = "relative";
       d.querySelector(".fa-angle-double-right").style.left = "5rem";
       d.querySelector(".fa-angle-double-right").style.transition = "all .35s ease";
+    }
+
+    if (
+      !(e.target.matches("#main-container") || e.target.matches("#main-container *"))
+      &&
+      e.target.matches(".desktop-navbar") || e.target.matches(".desktop-navbar *")
+    ) {  
+      d.getElementById("main").style.bacgrondColor = "#000";
+      d.getElementById("main").style.opacity = ".1";
+    } else {
+      d.getElementById("main").style.opacity = "1";
     }
   });
 }
