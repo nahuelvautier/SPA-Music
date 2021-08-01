@@ -94,7 +94,7 @@ a:hover {
   .nav-form {
     min-width: 5rem;
     width: 10vw;
-    max-width: 7rem;
+    max-width: 5rem;
     text-align: center;
   }
 
@@ -105,8 +105,8 @@ a:hover {
 
   .search-input {
     min-width: 6rem;
-    width: 60%;
-    max-width: 15rem;
+    width: 20vw;
+    max-width: 20rem;
     text-indent: 1vw;
   }
 
@@ -119,7 +119,7 @@ a:hover {
     transition: opacity .3s ease;
   }
 
-  /*  */
+  /* MAIN-CONTENT  */
   .home-article aside{
     width: 80%;
   }

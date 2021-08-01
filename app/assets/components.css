@@ -485,15 +485,15 @@
 
 
 /* MUSIC VIDEOS */
-main > h3 {
-  text-align: center;
-}
-
 .mvids-section {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2rem;
   text-align: center;
+}
+
+.mvids-aside h6 {
+  margin: 1.5rem auto;
 }
 
 

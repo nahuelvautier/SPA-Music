@@ -12,12 +12,16 @@ export function MusicVideos (props) {
   const ENDPOINT = strMusicVid,
     ENDPOINT_EMBED = ENDPOINT.replace("/watch?v=", "/embed/");
 
-  $article.classList.add("mvideos-article");
+  $article.classList.add("mvids-article");
+  $aside.classList.add("mvids-aside");
 
   $h6.textContent = strTrack;
 
   $iframe.src = ENDPOINT_EMBED;
-  $iframe.title = strTrack;
+  $iframe.title = "YouTube video player";
+  $iframe.frameborder = "0";
+  $iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
+  $iframe.setAttribute("allowfullscreen", "");
 
   $aside.appendChild($h6);
   $aside.appendChild($iframe);

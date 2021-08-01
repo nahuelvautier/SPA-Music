@@ -119,7 +119,7 @@ export function eventListeners () {
     }
 
     if (
-      !(e.target.matches("#main-container") || e.target.matches("#main-container *"))
+      !(e.target.matches("#main") || e.target.matches("#main *"))
       &&
       e.target.matches(".desktop-navbar") || e.target.matches(".desktop-navbar *")
     ) {  
