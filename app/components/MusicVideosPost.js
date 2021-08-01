@@ -17,6 +17,8 @@ export function MusicVideos (props) {
 
   $h6.textContent = strTrack;
 
+  $iframe.width = "280";
+  $iframe.height = "160";
   $iframe.src = ENDPOINT_EMBED;
   $iframe.title = "YouTube video player";
   $iframe.frameborder = "0";

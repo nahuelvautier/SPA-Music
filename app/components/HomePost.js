@@ -1,8 +1,17 @@
 export function HomePost (props) {
-  let { idArtist, strArtist, intFormedYear, intDiedYear, strArtistThumb, strBiographyEN } = props,
+  let { strArtist, strDisbanded, intFormedYear, intDiedYear, strArtistThumb, strBiographyEN } = props,
     urlPoster = (strArtistThumb === null)
       ? "./app/assets/not-found-image.svg"
-      : strArtistThumb;
+      : strArtistThumb,
+
+    actually;
+    
+  if (strDisbanded === "Yes") {
+    if (intDiedYear === null) intDiedYear = "Unknown";
+    actually = intDiedYear;
+  } else {
+    actually = "Actualmente";
+  }
 
   if (intDiedYear === null) intDiedYear = "Actualmente";
 
@@ -40,7 +49,7 @@ export function HomePost (props) {
 
   $h2.textContent = strArtist;
 
-  $pYears.textContent = `De: ${intFormedYear} a ${intDiedYear}`;
+  $pYears.textContent = `De: ${intFormedYear} a ${actually}`;
 
   $img.classList.add("home-card");
   $img.src = urlPoster;

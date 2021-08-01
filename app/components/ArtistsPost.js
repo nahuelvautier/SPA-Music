@@ -22,11 +22,11 @@ export function ArtistsPost (props) {
     ? "./app/assets/not-found-image.svg"
     : strArtistThumb, */
 
-    urlClearart = strArtistClearart || strArtistFanart || strArtistFanart2 || strArtistFanart3 || strArtistFanart4 || strArtistThumb ||"",
+    urlClearart = strArtistClearart || strArtistFanart || strArtistFanart2 || strArtistFanart3 || strArtistFanart4 || strArtistThumb || "",
 
     urlWideThumb = strArtistWideThumb || strArtistFanart2 || strArtistFanart3 || strArtistFanart4 || strArtistFanart || "",
 
-    integrants,
+    integrants = "",
 
     actually;
     
