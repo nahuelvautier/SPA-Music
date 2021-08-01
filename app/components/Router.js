@@ -66,7 +66,7 @@ export async function Router() {
       url: `${AUDIODB.ALBUM}${albums}`,
       cbSuccess: (albums) => {
         if (albums.album === null) {
-          let htmlCode = `<p class="error">No se encontraron albums del artista."</p>`;
+          let htmlCode = `<p class="error">No se encontraron albums del artista.</p>`;
           $main.innerHTML = htmlCode;
         } else {
           //console.log(albums);

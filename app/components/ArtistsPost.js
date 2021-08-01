@@ -5,20 +5,29 @@ export function ArtistsPost (props) {
     strDisbanded, strGenre, strCountry,
     strWebsite, strFacebook, strTwitter,
     strBiographyES,
-    strArtistBanner, strArtistLogo, strArtistClearart, strArtistWideThumb,
+    strArtistThumb, strArtistBanner, strArtistLogo, strArtistClearart, strArtistWideThumb,
     strArtistFanart, strArtistFanart2, strArtistFanart3, strArtistFanart4,
     strLastFMChart
   } = props;
 
-  let urlLogo = strArtistLogo === null ? "" : strArtistLogo,
-    urlBanner =
-      strArtistBanner === null
+  let urlLogo = strArtistLogo === null
+    ? ""
+    : strArtistLogo,
+
+    urlBanner = strArtistBanner === null
         ? "./app/assets/cover-not-found.svg"
         : strArtistBanner,
 
-    urlClearart = strArtistClearart,
-    urlWideThumb = strArtistWideThumb,
+    /* urlArtistThumb = (strArtistThumb === null || strArtistThumb === "")
+    ? "./app/assets/not-found-image.svg"
+    : strArtistThumb, */
+
+    urlClearart = strArtistClearart || strArtistFanart || strArtistFanart2 || strArtistFanart3 || strArtistFanart4 || strArtistThumb ||"",
+
+    urlWideThumb = strArtistWideThumb || strArtistFanart2 || strArtistFanart3 || strArtistFanart4 || strArtistFanart || "",
+
     integrants,
+
     actually;
     
     if (strDisbanded === "Yes") {
@@ -29,7 +38,7 @@ export function ArtistsPost (props) {
     }
 
 
-  if (strArtistClearart === null)  urlClearart = strArtistFanart;
+  /* if (strArtistClearart === null)  urlClearart = strArtistFanart;
   if (strArtistFanart === null) urlClearart = strArtistFanart2;
   if (strArtistFanart2 === null) urlClearart = strArtistFanart3;
   if (strArtistFanart3 === null) urlClearart = strArtistFanart4;
@@ -66,7 +75,7 @@ export function ArtistsPost (props) {
       document.querySelector(".img-wide").style.width = "50%";
       document.querySelector(".img-wide").style.margin = "0 auto";
     }, 1);
-  }
+  } */
 
   if (intFormedYear == null) intFormedYear = 'Unknown';
   if (intMembers === null) intMembers = "";
@@ -105,7 +114,7 @@ export function ArtistsPost (props) {
       </article>
       <article>
       <figure class="figure-clearart">
-        <img class="img-clearart" src="${urlClearart}" alt="${strArtist}">
+        <img class="img-clearart" src="${urlClearart}">
       </figure>
         <aside>
           <ul class="artists-ul">
@@ -121,7 +130,7 @@ export function ArtistsPost (props) {
           <p>${strBiographyES}</p>
         </aside>
         <figure class="figure-wide">
-          <img class="img-wide" src="${urlWideThumb}" alt="${strArtist}">
+          <img class="img-wide" src="${urlWideThumb}">
           <figcaption class="figure-lastfm">Listen too in: <a href="${strLastFMChart}" target="_blank">Last.fm</a></figcaption>
         </figure>
       </article>
