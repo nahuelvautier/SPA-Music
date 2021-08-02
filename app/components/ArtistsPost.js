@@ -18,10 +18,6 @@ export function ArtistsPost (props) {
         ? "./app/assets/cover-not-found.svg"
         : strArtistBanner,
 
-    /* urlArtistThumb = (strArtistThumb === null || strArtistThumb === "")
-    ? "./app/assets/not-found-image.svg"
-    : strArtistThumb, */
-
     urlClearart = strArtistClearart || strArtistFanart || strArtistFanart2 || strArtistFanart3 || strArtistFanart4 || strArtistThumb || "",
 
     urlWideThumb = strArtistWideThumb || strArtistFanart2 || strArtistFanart3 || strArtistFanart4 || strArtistFanart || "",
@@ -30,52 +26,12 @@ export function ArtistsPost (props) {
 
     actually;
     
-    if (strDisbanded === "Yes") {
-      if (intDiedYear === null) intDiedYear = "Unknown";
-      actually = intDiedYear;
-    } else {
-      actually = "Actualmente";
-    }
-
-
-  /* if (strArtistClearart === null)  urlClearart = strArtistFanart;
-  if (strArtistFanart === null) urlClearart = strArtistFanart2;
-  if (strArtistFanart2 === null) urlClearart = strArtistFanart3;
-  if (strArtistFanart3 === null) urlClearart = strArtistFanart4;
-  if (strArtistFanart4 === null) false;
-  
-  if (urlClearart === null || urlClearart === false || urlClearart === undefined) {
-    setTimeout(() => {
-      document.querySelector(".img-clearart").src = "./app/assets/not-found-image.svg";
-      document.querySelector(".img-clearart").style.width = "50%";
-      document.querySelector(".img-clearart").style.margin = "0 auto";
-    }, 1);
+  if (strDisbanded === "Yes") {
+    if (intDiedYear === null) intDiedYear = "Unknown";
+    actually = intDiedYear;
+  } else {
+    actually = "Actualmente";
   }
-  
-
-  if (strArtistClearart === null && strArtistWideThumb  === null) {
-    urlWideThumb = strArtistFanart2 || strArtistFanart3;
-  }
-
-  if (strArtistFanart2 === null || strArtistFanart2 === "") {
-    urlWideThumb = strArtistFanart3 || strArtistFanart4;
-  }
-
-  if (strArtistFanart3 === null || strArtistFanart3 === "") {
-    urlWideThumb  = strArtistFanart4 || false;
-  }
-
-  if (strArtistFanart4 === null || strArtistFanart4 === "") {
-    false;
-  }
-
-  if (urlWideThumb === null || urlWideThumb === false || urlWideThumb === undefined) {
-    setTimeout(() => {
-      document.querySelector(".img-wide").src = "./app/assets/not-found-image.svg";
-      document.querySelector(".img-wide").style.width = "50%";
-      document.querySelector(".img-wide").style.margin = "0 auto";
-    }, 1);
-  } */
 
   if (intFormedYear == null) intFormedYear = 'Unknown';
   if (intMembers === null) intMembers = "";

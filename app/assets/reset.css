@@ -51,23 +51,15 @@ main {
   display: block;
 }
 
-::selection {
-  background-color: var(--main-color);
-}
+::selection { background-color: var(--main-color); }
 
-.none {
-  display: none;
-}
+.none { display: none }
 
 .filtered {
   visibility: hidden;
   opacity: 0.1;
   order: 1;
   transition: all .3s ease;
-}
-
-.hidden {
-  visibility: hidden;
 }
 
 .error {
