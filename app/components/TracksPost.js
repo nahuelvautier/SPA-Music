@@ -1,5 +1,5 @@
 export function TracksPost (props) {
-  let { strTrack, intDuration, strGenre, intTrackNumber, strTrackThumb } = props;
+  let { strTrack, intDuration, strGenre, intTrackNumber } = props;
 
   const d = document,
     $h4 = d.createElement("h4"),
