@@ -502,6 +502,11 @@
   margin: 1.5rem auto;
 }
 
+.mvids-iframe {
+  height: 220px;
+  width: 312px;
+}
+
 
 
 /* FOOTER */

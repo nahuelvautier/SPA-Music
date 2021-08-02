@@ -9,19 +9,23 @@ export function MusicVideos (props) {
 
   let { strTrack, strMusicVid } = props;
 
-  const ENDPOINT = strMusicVid,
+  const  NOCOOKIE = strMusicVid.replace("youtube", "youtube-nocookie"),
+    ENDPOINT = NOCOOKIE,
     ENDPOINT_EMBED = ENDPOINT.replace("/watch?v=", "/embed/");
 
   $article.classList.add("mvids-article");
   $aside.classList.add("mvids-aside");
+  $iframe.classList.add("mvids-iframe");
+
+  //console.log(ENDPOINT_EMBED);
 
   $h6.textContent = strTrack;
 
-  $iframe.width = "280";
-  $iframe.height = "160";
+  $iframe.width = "640";
+  $iframe.height = "360";
   $iframe.src = ENDPOINT_EMBED;
   $iframe.title = "YouTube video player";
-  $iframe.frameborder = "0";
+  $iframe.frameborder = "1";
   $iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
   $iframe.setAttribute("allowfullscreen", "");
 
