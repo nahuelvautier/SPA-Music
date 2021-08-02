@@ -131,7 +131,7 @@ export function ArtistsPost (props) {
         </aside>
         <figure class="figure-wide">
           <img class="img-wide" src="${urlWideThumb}">
-          <figcaption class="figure-lastfm">Listen too in: <a href="${strLastFMChart}" target="_blank">Last.fm</a></figcaption>
+          <figcaption class="figure-lastfm">Escuchar en: <a href="${strLastFMChart}" target="_blank">Last.fm</a></figcaption>
         </figure>
       </article>
     </section>
