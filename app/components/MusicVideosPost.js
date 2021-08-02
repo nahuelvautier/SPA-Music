@@ -23,7 +23,7 @@ export function MusicVideos (props) {
 
   $iframe.width = "640";
   $iframe.height = "360";
-  $iframe.src = ENDPOINT_EMBED;
+  $iframe.src = `${ENDPOINT_EMBED};origin=https://nahuelvautier.github.io/`;
   $iframe.title = "YouTube video player";
   $iframe.frameborder = "1";
   $iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture";
