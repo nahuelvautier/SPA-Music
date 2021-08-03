@@ -421,7 +421,7 @@
   background-color: var(--dark-color-two);
 }
 
-.albums-figure img { width: 100 }
+.albums-figure img { width: 100%; }
 
 
 
