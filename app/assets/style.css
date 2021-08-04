@@ -97,7 +97,7 @@ a:hover {  color: var(--main-model-color); }
 
   /* MAIN-CONTENT  */
   .home-article aside{ width: 80%; }
-
+    
   .albums-section, .mvids-section {
     margin-left: 3.5rem;
     margin-right: 1rem;

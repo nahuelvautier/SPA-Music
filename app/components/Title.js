@@ -3,7 +3,7 @@ export function Title () {
     $a = document.createElement("a");
 
   $a.href = "#/home";
-  $title.textContent = "Musicapp";
+  $title.textContent = "SPA Music";
 
   $a.appendChild($title);
 
