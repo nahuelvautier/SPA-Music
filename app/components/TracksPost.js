@@ -14,8 +14,8 @@ export function TracksPost (props) {
     let minutes = Math.floor(ms / 60000),
       seconds = ((ms % 60000) / 1000).toFixed(0);
 
-    let date = `${minutes}:${(seconds < 10 ? "0" : "")}${seconds}`;
-    $pDuration.innerHTML = `<br>Duración: ${date}`;
+    let time = `${minutes}:${(seconds < 10 ? "0" : "")}${seconds}`;
+    $pDuration.innerHTML = `<br>Duración: ${time}`;
   })(intDuration);
 
   if (!strGenre) strGenre = "Género: N/A";

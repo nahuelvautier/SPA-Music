@@ -1,0 +1,46 @@
+[33mcdacb8b[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m albums img error fixed
+[33mc76a33e[m meta tag for insecure requests added
+[33m0ec1373[m Origin modification
+[33m5b3e62a[m Code optimize modifications
+[33m90cd6a0[m Link final changelog
+[33ma5bb0b1[m Link Change Test
+[33m13e43f0[m Video details optimized
+[33md16420e[m Listen to / Escuchar en
+[33mb3fac5b[m Lastest validations added
+[33ma908b77[m Some details modification
+[33m9df52ff[m Last bugs fixed
+[33m4febdb8[m Full screen to vids added
+[33med2dd2d[m first project version finished
+[33mee6a4d3[m Logic error of filter button fixed
+[33m546e818[m Logic error on mobile
+[33m5b67694[m adding and fixing details
+[33m3dfb7ee[m little deprecated event fixed
+[33mad66cb1[m responsive object added
+[33m4d20b13[m Desktop navbar styles finished, details corrected
+[33m1d0d674[m Appling styles and programming to details
+[33mddca268[m desktop navbar styles started
+[33m77052d0[m Desktop navbar added
+[33mfa96061[m Finishing styles
+[33mb89e2a8[m Starting Styles
+[33m8cd331c[m Posts renderized and router programmed
+[33m1928115[m Videos path renderized
+[33m8bf8a0a[m discography path rendered
+[33m77fc49c[m tracks path rendered
+[33m07028f3[m search filter added
+[33m8363db8[m code refactoruzed & tracs path added
+[33m25c652d[m Albums path rendered
+[33m41e120d[m SearchPost rendered
+[33m6457042[m some little styles after add click listener
+[33mf9a2ed7[m click event file added, code refactorized
+[33m2f8389f[m Lil Deetail at home path
+[33mc34d313[m Music videos section added
+[33m250e20d[m Discography section added
+[33m331c884[m code refactorized and new endpoints added to fetch
+[33m0c782a8[m code refactored and new endpoints added to fetch
+[33mb733e9c[m Home rendered and lil styled
+[33ma49200e[m Programming the Router
+[33m30a5b63[m Hamburger menu fixed
+[33mf97eacc[m First steps
+[33m345249c[m First steps
+[33me2302f1[m Project init
+[33m4959f2a[m Initial commit
