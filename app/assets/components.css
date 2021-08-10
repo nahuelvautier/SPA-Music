@@ -437,6 +437,7 @@
 .tracks-article {
   border-radius: .7rem;
   background-color: var(--dark-color-two);
+  opacity: .95;
 }
 
 .tracks-aside {
