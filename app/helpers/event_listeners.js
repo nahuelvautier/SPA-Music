@@ -5,7 +5,9 @@ export function eventListeners () {
     $navForm = d.querySelector(".nav-form"),
     $ulForm = d.querySelector(".ul-form"),
     $spanForm = d.querySelector(".span-form"),
-    $input = d.querySelector(".search-input");
+    $input = d.querySelector(".search-input"),
+
+    { hash } = location;
   
   d.addEventListener("click", e => {
     //console.log(e.target);
@@ -123,7 +125,6 @@ export function eventListeners () {
       &&
       e.target.matches(".desktop-navbar") || e.target.matches(".desktop-navbar *")
     ) {  
-      d.getElementById("main").style.bacgrondColor = "#000";
       d.getElementById("main").style.opacity = ".1";
     } else {
       d.getElementById("main").style.opacity = "1";

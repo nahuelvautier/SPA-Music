@@ -11,7 +11,8 @@ import { eventListeners } from "./helpers/event_listeners.js";
 export function App () {
   const $root = document.getElementById("root");
   $root.innerHTML = null;
-  
+  $root.style.backgroundImage = null;
+
   $root.appendChild(Header());
   $root.appendChild(Hamburger());
   $root.appendChild(DesktopMenu());

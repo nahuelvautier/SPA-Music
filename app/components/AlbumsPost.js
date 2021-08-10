@@ -1,6 +1,6 @@
 export function AlbumsPost (props) {
   let {
-    idAlbum, 
+    idAlbum,
     strAlbum,
     strStyle, 
     strGenre,

@@ -6,6 +6,7 @@ const NAME = "theaudiodb",
   ARTIST = `${KEY}/search.php?s=`,
   DISCOGRAPHY = `${KEY}/discography.php?s=`,
   ALBUM = `${KEY}/album.php?i=`,
+  INDIVIDUAL_ALBUM = `${KEY}/album.php?m=`,
   MUSIC_VID = `${KEY}/mvid.php?i=`,
   TRACK_DATA = `${KEY}/track.php?m=`;
 
@@ -18,6 +19,7 @@ export default {
   ARTIST,
   DISCOGRAPHY,
   ALBUM,
+  INDIVIDUAL_ALBUM,
   MUSIC_VID,
   TRACK_DATA
 }

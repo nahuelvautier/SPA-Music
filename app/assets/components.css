@@ -434,6 +434,12 @@
   gap: 2rem;
 }
 
+/* h2 {
+  padding: 2rem 0;
+  color: var(--main-color);
+  background-color: var(--dark-color-three);
+} */
+
 .tracks-article {
   border-radius: .7rem;
   background-color: var(--dark-color-two);
@@ -457,9 +463,7 @@
   margin: auto;
   margin-top: 3rem;
   margin-bottom: 3rem;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  width: 95%;
+  width: 80%;
   display: block;
   text-align: center;
   border: thick solid var(--main-model-color);

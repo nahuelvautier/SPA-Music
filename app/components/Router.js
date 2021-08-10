@@ -10,6 +10,7 @@ import { MusicVideos } from "./MusicVideosPost.js";
 export async function Router() {
   const d = document,
     $main = d.getElementById("main"),
+    $root = d.getElementById("root"),
     { hash } = location;
 
   $main.innerHTML = null;
@@ -152,10 +153,10 @@ export async function Router() {
       }
     });
   } else {
-    const tracks = localStorage.getItem("idAlbum");
+    const albumQuery = localStorage.getItem("idAlbum");
 
     await connect({
-      url: `${AUDIODB.TRACK_DATA}${tracks}`,
+      url: `${AUDIODB.TRACK_DATA}${albumQuery}`,
       cbSuccess: (tracks) => {
         //console.log(tracks);
         const $section = d.createElement("section"),
@@ -169,6 +170,28 @@ export async function Router() {
 
         $main.appendChild($h2);
         $main.appendChild($section);
+      }
+    });
+
+    await connect({
+      url: `${AUDIODB.INDIVIDUAL_ALBUM}${albumQuery}`,
+      cbSuccess: (album) => {
+        //console.log(album.album[0]);
+        
+        let urlCover = album.album[0].strAlbumThumb || album.album[0].strAlbum3DThumb || "";
+        
+        if (hash.includes("#/track")) {
+          $main.style.backgroundImage = `url(${urlCover})`;
+          $main.style.backgroundSize = "80%";
+          $main.style.backgroundRepeat = "no-repeat";
+          $main.style.backgroundPosition = "center";
+          $main.style.backgroundAttachment = "fixed";
+          $main.style.paddingBottom = "2rem";
+
+          d.querySelector("h2").style.padding = "2rem 0";
+          d.querySelector("h2").style.color = "var(--main-color)";
+          d.querySelector("h2").style.backgroundColor = "var(--dark-color-two)";
+        }
       }
     });
   }
