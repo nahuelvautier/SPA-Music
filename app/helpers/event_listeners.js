@@ -5,9 +5,7 @@ export function eventListeners () {
     $navForm = d.querySelector(".nav-form"),
     $ulForm = d.querySelector(".ul-form"),
     $spanForm = d.querySelector(".span-form"),
-    $input = d.querySelector(".search-input"),
-
-    { hash } = location;
+    $input = d.querySelector(".search-input");
   
   d.addEventListener("click", e => {
     //console.log(e.target);

@@ -175,13 +175,13 @@ export async function Router() {
 
     await connect({
       url: `${AUDIODB.INDIVIDUAL_ALBUM}${albumQuery}`,
-      cbSuccess: (album) => {
+      cbSuccess: (albumCovers) => {
         //console.log(album.album[0]);
         
-        let urlCover = album.album[0].strAlbumThumb || album.album[0].strAlbum3DThumb || "";
+        let urlAlbumCovers = albumCovers.album[0].strAlbumThumb || album.album[0].strAlbum3DThumb || "";
         
         if (hash.includes("#/track")) {
-          $main.style.backgroundImage = `url(${urlCover})`;
+          $main.style.backgroundImage = `url(${urlAlbumCovers})`;
           $main.style.backgroundSize = "85%";
           $main.style.backgroundRepeat = "no-repeat";
           $main.style.backgroundPosition = "center";
