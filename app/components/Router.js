@@ -182,7 +182,7 @@ export async function Router() {
         
         if (hash.includes("#/track")) {
           $main.style.backgroundImage = `url(${urlCover})`;
-          $main.style.backgroundSize = "80%";
+          $main.style.backgroundSize = "85%";
           $main.style.backgroundRepeat = "no-repeat";
           $main.style.backgroundPosition = "center";
           $main.style.backgroundAttachment = "fixed";
