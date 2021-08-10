@@ -188,6 +188,7 @@ export async function Router() {
           $main.style.backgroundAttachment = "fixed";
           $main.style.paddingBottom = "2rem";
 
+          d.querySelector("h2").style.fontSize = "150%";
           d.querySelector("h2").style.padding = "2rem 0";
           d.querySelector("h2").style.color = "var(--main-color)";
           d.querySelector("h2").style.backgroundColor = "var(--dark-color-two)";

@@ -434,12 +434,6 @@
   gap: 2rem;
 }
 
-/* h2 {
-  padding: 2rem 0;
-  color: var(--main-color);
-  background-color: var(--dark-color-three);
-} */
-
 .tracks-article {
   border-radius: .7rem;
   background-color: var(--dark-color-two);
