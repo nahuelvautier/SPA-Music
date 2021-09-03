@@ -6,7 +6,8 @@ export function Footer () {
 
   $footer.classList.add("footer");
 
-  $a.href = "#";
+  $a.href = "https://nahuelvautier.netlify.app/";
+  $a.target = "_blank";
   $a.textContent = " Nahuel Vautier";
   $p.innerHTML= "2021 &copy;";
 
