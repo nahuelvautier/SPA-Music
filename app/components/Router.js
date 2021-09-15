@@ -177,10 +177,8 @@ export async function Router() {
       url: `${AUDIODB.INDIVIDUAL_ALBUM}${albumQuery}`,
       cbSuccess: (albumCovers) => {
         //console.log(album.album[0]);
-        
         let urlAlbumCovers = albumCovers.album[0].strAlbumThumb || album.album[0].strAlbum3DThumb || "";
         
-
         //Track main & title styles
         if (hash.includes("#/track")) {
           $main.style.backgroundImage = `url(${urlAlbumCovers})`;
@@ -194,7 +192,7 @@ export async function Router() {
           d.querySelector("h2").style.marginTop = "0";
           d.querySelector("h2").style.padding = "2rem 0";
           d.querySelector("h2").style.color = "var(--main-color)";
-          d.querySelector("h2").style.backgroundColor = "var(--dark-color-two)";
+          d.querySelector("h2").style.backgroundColor = "var(--dark-color-one)";
         }
       }
     });

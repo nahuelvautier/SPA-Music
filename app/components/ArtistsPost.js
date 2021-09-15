@@ -37,7 +37,7 @@ export function ArtistsPost (props) {
   if (intMembers === null) intMembers = "";
   if (strBiographyES === null) strBiographyES = "";
   if (intMembers > 1) {
-    integrants = "Integrantes en la banda";
+    integrants = "Integrantes";
   } else {
     integrants = "Miembro solista";
   }
