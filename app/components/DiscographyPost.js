@@ -1,6 +1,6 @@
 export function DiscographyPost (props) {
   const d = document,
-    $aside = d.createElement("article"),
+    $article = d.createElement("article"),
     $h3 = d.createElement("h3"),
     $template = d.createElement("template").content,
     $fragment = d.createDocumentFragment();
@@ -18,5 +18,5 @@ export function DiscographyPost (props) {
 
   $aside.appendChild($fragment);
 
-  return $aside;
+  return $article;
 }
