@@ -1,7 +1,7 @@
 const NAME = "theaudiodb",
   DOMAIN = `https://${NAME}.com`,
   DEV = `${DOMAIN}/api/v1/json`,
-  KEY = `${DEV}/1`,
+  KEY = `${DEV}/2`,
   CONNECT = `${KEY}/search.php?s=`,
   ARTIST = `${KEY}/search.php?s=`,
   DISCOGRAPHY = `${KEY}/discography.php?s=`,
