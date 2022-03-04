@@ -9,7 +9,9 @@ export function MusicVideos (props) {
 
   let { strTrack, strMusicVid } = props;
 
-  const  NOCOOKIE = strMusicVid.replace("youtube", "youtube-nocookie"),
+  let httpsGetter = strMusicVid.replace("http", "https");
+  
+  const NOCOOKIE = httpsGetter.replace("youtube", "youtube-nocookie"),
     ENDPOINT = NOCOOKIE,
     ENDPOINT_EMBED = ENDPOINT.replace("/watch?v=", "/embed/");
 
