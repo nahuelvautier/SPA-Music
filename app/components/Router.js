@@ -20,7 +20,7 @@ export async function Router() {
   if (!hash || hash === "#/home") {
     //HOME
     await connect({
-      url: AUDIODB.CONNECT,
+      url: `${AUDIODB.CONNECT}coldplay`,
       cbSuccess: (posts) => {
         //console.log(posts);
         const $section = d.createElement("section"),
@@ -34,7 +34,7 @@ export async function Router() {
     });
   } else if (hash.includes("#/search")) {
     //SEARCH
-    const query = localStorage.getItem("artistSearch");
+    const query = localStorage.getItem("artistSearch").toLocaleLowerCase();
     //console.log(query);
     //console.log(`${AUDIODB.ARTIST}${query}`);
 
